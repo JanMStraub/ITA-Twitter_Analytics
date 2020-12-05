@@ -14,7 +14,7 @@ def auth():
 # query needs to be url encoded: # := %23; [space] ;= + OR %20
 # further information: https://de.wikipedia.org/wiki/URL-Encoding 
 def getQuery():
-    return "%23nofilter lang:en"
+    return "%23nofilter lang:de"
 
 def create_url():
     query = getQuery()
