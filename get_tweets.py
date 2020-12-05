@@ -14,11 +14,11 @@ def auth():
 # query needs to be url encoded: # := %23; [space] ;= + OR %20
 # further information: https://de.wikipedia.org/wiki/URL-Encoding 
 def getQuery():
-    return "%23nofilter lang:de"
+    trends = getTrends()
+    return trends[0] + " lang:de"
 
-def create_url():
+def create_url(max_results):
     query = getQuery()
-    max_results = 10 # value between 10 and 100
     # Tweet fields are adjustable.
     # Options include:
     # attachments, author_id, context_annotations,
@@ -46,14 +46,49 @@ def connect_to_endpoint(url, headers):
         )
     return response.json()
 
-def main():
+# get top 50 german trends and returns their queries
+def getTrends():
     bearer_token = auth()
-    url = create_url()
+    url = "https://api.twitter.com/1.1/trends/place.json?id=23424829"
+    headers = create_headers(bearer_token)
+    json_response = connect_to_endpoint(url, headers)
+    trends = json.loads(json.dumps(json_response))
+
+
+    listTrends = []
+    for trend in trends[0]["trends"]:
+        listTrends.append(trend["query"])
+    return listTrends
+
+def main(max_results):
+    bearer_token = auth()
+    url = create_url(max_results)
     headers = create_headers(bearer_token)
     json_response = connect_to_endpoint(url, headers)
     print(json.dumps(json_response, indent=4, sort_keys=True))
+    
+    
+    next_token = json.loads(json.dumps(json_response))["meta"]["next_token"]
+    new_url = url + "&next_token=" + next_token
+    json_response2 = connect_to_endpoint(new_url, headers)
+    print(json.dumps(json_response2, indent=4, sort_keys=True))
+
+"""
+current state:
+    - max_results is the number of tweets per request
+    - max_results can only be a value between 10 and 100
+    - more tweets can be obtained via the next_token
+
+TODO:
+    - implement an iterative approch to get more than 100 tweets via the next_token
+    - concentate all resulting JSONs in a big one
+"""
+
 
 if __name__ == "__main__":
 
-    main()
-    print("Everything works fine :)")
+    max_results = 10
+
+    main(max_results)
+
+    print("You are doing great :)")
