@@ -1,3 +1,6 @@
+# Storage // add storage-folder to this file for deployment
+# storage/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
