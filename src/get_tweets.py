@@ -9,7 +9,8 @@ import json
 # export 'BEARER_TOKEN'='<your_bearer_token>'
 
 def auth():
-    return os.environ.get("BEARER_TOKEN")
+    bearer_token = os.environ.get("BEARER_TOKEN")
+    return bearer_token
 
 
 def create_url(max_results, query):
@@ -44,13 +45,12 @@ def connect_to_endpoint(url, headers):
 
 # get top 50 german trends and returns their queries
 # returns dicts {'name', 'query', 'tweet_volume', ...} -> tweet_volume is often Null
-def getTrends(headers):
+def getTrends():
     bearer_token = auth()
-    url = "https://api.twitter.com/1.1/trends/place.json?id=23424829"
     headers = create_headers(bearer_token)
+    url = "https://api.twitter.com/1.1/trends/place.json?id=23424829"
     json_response = connect_to_endpoint(url, headers)
     trends = json.loads(json.dumps(json_response))
-
 
     listTrends = []
     for trend in trends[0]["trends"]:
@@ -58,7 +58,11 @@ def getTrends(headers):
     return listTrends
 
 
-def getTweets(total_amount, query, headers):
+def getTweets(total_amount, query):
+    bearer_token = auth()
+    headers = create_headers(bearer_token)
+    query = query + " lang:de"
+
     scrape_amount = 100
     next_token = ""
     data = []
@@ -73,7 +77,10 @@ def getTweets(total_amount, query, headers):
             url = url + "&next_token=" + next_token
         json_response = connect_to_endpoint(url, headers)
         dict_response = json.loads(json.dumps(json_response))
-        next_token = dict_response["meta"]["next_token"]
+        try:
+            next_token = dict_response["meta"]["next_token"]
+        except KeyError:
+            print("not enough tweets for query: " + query)
         data += dict_response["data"]
         
         total_amount -= scrape_amount
@@ -81,13 +88,17 @@ def getTweets(total_amount, query, headers):
     return data
 
 
-if __name__ == "__main__":
-    headers = create_headers(auth())
+def saveTweetsToStorage(trend_amount, total_amount):
+    """
+    input:  trend_amount: amount of top trends to fetch
+            total_amount: amount of tweets to fetch per trend
+    output: None (.json created in storage)
+    """
+    if trend_amount > 50:
+        raise Exception("trends_amount can only be 50 at maximum")
+    
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    trend_amount = 5
-    total_amount = 10 # leave at 10 for testing
-
-    trends = getTrends(headers)[:trend_amount]
+    trends = getTrends()[:trend_amount]
 
     for trend in trends:
         filename = trend["name"] + '.json'
@@ -96,7 +107,7 @@ if __name__ == "__main__":
         if not os.path.exists(path):
             print("processing: " + trend["name"])
         
-            data = getTweets(total_amount,trend["query"], headers)
+            data = getTweets(total_amount, trend["query"])
             json_data = json.dumps(data, indent=4, sort_keys=True)
 
             current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -106,14 +117,13 @@ if __name__ == "__main__":
         else:
             print("skipping " + trend["name"] + " -> already in storage")
 
-    print("You are doing great :)")
+
+if __name__ == "__main__":
+    saveTweetsToStorage(30, 200) # leave at (5, 10) for testing
+    print("You are doing great :)") # motivational message
 
 """
 TODO:
-    - implement feature to get new, more or less tweets to their appropriate storage file
-        -> important for testing of parameters for ML-Methods
     - run flake8 and tidy up
     - document/comment functions
-    - rebase main code into seperate function for external access
-    - possible feature? -> possibility to get tweets for a costum query 
 """
