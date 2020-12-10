@@ -110,7 +110,6 @@ def saveTweetsToStorage(trend_amount, total_amount):
             data = getTweets(total_amount, trend["query"])
             json_data = json.dumps(data, indent=4, sort_keys=True)
 
-            current_dir = os.path.dirname(os.path.abspath(__file__))
             with open(path, 'w') as output:
                 output.write(json_data)
                 print("Data successfully writen to storage/" + filename)
