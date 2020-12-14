@@ -8,11 +8,14 @@ import json
 # To set your enviornment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
 
+
+# returns BEARER_TOKEN for authentication
 def auth():
     bearer_token = os.environ.get("BEARER_TOKEN")
     return bearer_token
 
 
+# returns api url for query with fixed amount of tweets
 def create_url(max_results, query):
     # Tweet fields are adjustable.
     # Options include:
@@ -26,14 +29,15 @@ def create_url(max_results, query):
     return url
 
 
+# returns http headers
 def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
 
-
+# connect to url and returns json response
 def connect_to_endpoint(url, headers):
     response = requests.request("GET", url, headers=headers)
-    print(response.status_code)
+    print("status code: " + response.status_code)
     if response.status_code != 200:
         raise Exception(
             "Request returned an error @ {}: {} {}".format(
@@ -45,20 +49,21 @@ def connect_to_endpoint(url, headers):
 
 # get top 50 german trends and returns their queries
 # returns dicts {'name', 'query', 'tweet_volume', ...} -> tweet_volume is often Null
-def getTrends():
+def get_trends():
     bearer_token = auth()
     headers = create_headers(bearer_token)
     url = "https://api.twitter.com/1.1/trends/place.json?id=23424829"
     json_response = connect_to_endpoint(url, headers)
     trends = json.loads(json.dumps(json_response))
 
-    listTrends = []
+    list_trends = []
     for trend in trends[0]["trends"]:
-        listTrends.append(trend)
+        list_trends.append(trend)
     return listTrends
 
 
-def getTweets(total_amount, query):
+#returns [total amount] tweets for [query]
+def get_tweets(total_amount, query):
     bearer_token = auth()
     headers = create_headers(bearer_token)
     query = query + " lang:de"
@@ -87,8 +92,8 @@ def getTweets(total_amount, query):
 
     return data
 
-
-def saveTweetsToStorage(trend_amount, total_amount):
+# saves jsons to storage for number of trends and tweets per trend
+def save_tweets_to_storage(trend_amount, total_amount):
     """
     input:  trend_amount: amount of top trends to fetch
             total_amount: amount of tweets to fetch per trend
@@ -98,7 +103,7 @@ def saveTweetsToStorage(trend_amount, total_amount):
         raise Exception("trends_amount can only be 50 at maximum")
     
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    trends = getTrends()[:trend_amount]
+    trends = get_trends()[:trend_amount]
 
     for trend in trends:
         filename = trend["name"] + '.json'
@@ -107,7 +112,7 @@ def saveTweetsToStorage(trend_amount, total_amount):
         if not os.path.exists(path):
             print("processing: " + trend["name"])
         
-            data = getTweets(total_amount, trend["query"])
+            data = get_tweets(total_amount, trend["query"])
             json_data = json.dumps(data, indent=4, sort_keys=True)
 
             with open(path, 'w') as output:
@@ -118,11 +123,5 @@ def saveTweetsToStorage(trend_amount, total_amount):
 
 
 if __name__ == "__main__":
-    saveTweetsToStorage(30, 200) # leave at (5, 10) for testing
+    save_tweets_to_storage(30, 200) # leave at (5, 10) for testing
     print("You are doing great :)") # motivational message
-
-"""
-TODO:
-    - run flake8 and tidy up
-    - document/comment functions
-"""
