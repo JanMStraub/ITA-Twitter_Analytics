@@ -5,7 +5,7 @@ import json
 # sample code for API auth: https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/master/Recent-Search/recent_search.py
 # info on pagination: https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/paginate
 
-# To set your enviornment variables in your terminal run the following line:
+# To set your environment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
 
 
@@ -34,6 +34,7 @@ def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
 
+
 # connect to url and returns json response
 def connect_to_endpoint(url, headers):
     response = requests.request("GET", url, headers=headers)
@@ -59,10 +60,10 @@ def get_trends():
     list_trends = []
     for trend in trends[0]["trends"]:
         list_trends.append(trend)
-    return listTrends
+    return list_trends
 
 
-#returns [total amount] tweets for [query]
+# returns [total amount] tweets for [query]
 def get_tweets(total_amount, query):
     bearer_token = auth()
     headers = create_headers(bearer_token)
@@ -72,13 +73,13 @@ def get_tweets(total_amount, query):
     next_token = ""
     data = []
 
-    while(total_amount != 0):
+    while total_amount != 0:
 
-        if (total_amount < 100):
+        if total_amount < 100:
             scrape_amount = total_amount
         
         url = create_url(scrape_amount, query)
-        if (next_token != ""):
+        if next_token != "":
             url = url + "&next_token=" + next_token
         json_response = connect_to_endpoint(url, headers)
         dict_response = json.loads(json.dumps(json_response))
@@ -91,6 +92,7 @@ def get_tweets(total_amount, query):
         total_amount -= scrape_amount
 
     return data
+
 
 # saves jsons to storage for number of trends and tweets per trend
 def save_tweets_to_storage(trend_amount, total_amount):
@@ -123,5 +125,5 @@ def save_tweets_to_storage(trend_amount, total_amount):
 
 
 if __name__ == "__main__":
-    save_tweets_to_storage(30, 200) # leave at (5, 10) for testing
-    print("You are doing great :)") # motivational message
+    save_tweets_to_storage(30, 200)  # leave at (5, 10) for testing
+    print("You are doing great :)")  # motivational message
