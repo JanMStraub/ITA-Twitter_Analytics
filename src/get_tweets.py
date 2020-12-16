@@ -2,41 +2,53 @@ import requests
 import os
 import json
 
-# sample code for API auth: https://github.com/twitterdev/Twitter-API-v2-sample-code/blob/master/Recent-Search/recent_search.py
-# info on pagination: https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/paginate
 
 # To set your environment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
 
 
-# returns BEARER_TOKEN for authentication
 def auth():
+    """
+    OUT:
+    bearer_token (string): return the content of the environment variable BEARER_TOKEN
+    """
     bearer_token = os.environ.get("BEARER_TOKEN")
     return bearer_token
 
 
-# returns api url for query with fixed amount of tweets
 def create_url(max_results, query):
-    # Tweet fields are adjustable.
-    # Options include:
-    # attachments, author_id, context_annotations,
-    # conversation_id, created_at, entities, geo, id,
-    # in_reply_to_user_id, lang, non_public_metrics, organic_metrics,
-    # possibly_sensitive, promoted_metrics, public_metrics, referenced_tweets,
-    # source, text, and withheld
+    """
+    IN:
+    max_results (int): number of tweets to get from API
+    query (string): twitter search query
+    OUT:
+    url (string): twitter API url for given query with [max_result] tweets
+    """
     tweet_fields = "tweet.fields=text,lang,created_at"
-    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}&max_results={}".format(query, tweet_fields, max_results)
+    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}&max_results={}"\
+        .format(query, tweet_fields, max_results)
     return url
 
 
-# returns http headers
 def create_headers(bearer_token):
+    """
+    IN:
+    bearer_token (string): bearer_token for authentication
+    OUT:
+    headers (string): http headers for authentication
+    """
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
 
 
-# connect to url and returns json response
 def connect_to_endpoint(url, headers):
+    """
+    IN:
+    url (string): twitter API url
+    headers (string): http headers for authentication
+    OUT:
+    response.json() (json): json response from API with tweets
+    """
     response = requests.request("GET", url, headers=headers)
     print("status code: " + response.status_code)
     if response.status_code != 200:
@@ -48,9 +60,11 @@ def connect_to_endpoint(url, headers):
     return response.json()
 
 
-# get top 50 german trends and returns their queries
-# returns dicts {'name', 'query', 'tweet_volume', ...} -> tweet_volume is often Null
 def get_trends():
+    """
+    OUT:
+    list_trends (List): list of top 50 trends on twitter as strings at the current moment
+    """
     bearer_token = auth()
     headers = create_headers(bearer_token)
     url = "https://api.twitter.com/1.1/trends/place.json?id=23424829"
@@ -58,13 +72,19 @@ def get_trends():
     trends = json.loads(json.dumps(json_response))
 
     list_trends = []
-    for trend in trends[0]["trends"]:
+    for trend in trends[0]["trends"]:  # unpack json response and add trend to list
         list_trends.append(trend)
     return list_trends
 
 
-# returns [total amount] tweets for [query]
 def get_tweets(total_amount, query):
+    """
+    IN:
+    total_amount (int): total amount of tweets to get per query
+    query (string): search query(trend in our case) for tweets
+    OUT:
+    data (List): list of tweets in json style
+    """
     bearer_token = auth()
     headers = create_headers(bearer_token)
     query = query + " lang:de"
@@ -73,16 +93,22 @@ def get_tweets(total_amount, query):
     next_token = ""
     data = []
 
+    # twitter API can only return 100 tweets per request, therefore we take the total amount and decrement 100 per
+    # iteration of the loop
     while total_amount != 0:
 
+        # for last loop if total_amount % 100 != 0
         if total_amount < 100:
             scrape_amount = total_amount
         
         url = create_url(scrape_amount, query)
+        # next_token tells the API where the last request ended
         if next_token != "":
             url = url + "&next_token=" + next_token
         json_response = connect_to_endpoint(url, headers)
         dict_response = json.loads(json.dumps(json_response))
+
+        # if no next_token is provided, there are not enough tweets to match total_amount
         try:
             next_token = dict_response["meta"]["next_token"]
         except KeyError:
@@ -94,12 +120,13 @@ def get_tweets(total_amount, query):
     return data
 
 
-# saves jsons to storage for number of trends and tweets per trend
 def save_tweets_to_storage(trend_amount, total_amount):
     """
-    input:  trend_amount: amount of top trends to fetch
-            total_amount: amount of tweets to fetch per trend
-    output: None (.json created in storage)
+    IN:
+    trend_amount (int): amount of top trends to fetch
+    total_amount (int): amount of tweets to fetch per trend
+    OUT:
+    None (json created in storage)
     """
     if trend_amount > 50:
         raise Exception("trends_amount can only be 50 at maximum")
@@ -125,5 +152,5 @@ def save_tweets_to_storage(trend_amount, total_amount):
 
 
 if __name__ == "__main__":
-    save_tweets_to_storage(30, 200)  # leave at (5, 10) for testing
+    save_tweets_to_storage(5, 10)  # leave at (5, 10) for testing
     print("You are doing great :)")  # motivational message
