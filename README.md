@@ -1,12 +1,8 @@
-# ITA-Twitter_Analytics
+# Consumer-Based Decision Aid Of The Top 50 German Twitter Trends
+Maximilian Schöneberger, Jan Straub, Paavo Streibich, Robin Viellieber
+maxschoeneberger@t-online.de, jan.straub@stud.uni-heidelberg.de, kf223@uni-heidelberg.de, viellieber@stud.uni-heidelberg.de
 
-## Requirements
-Make sure to download all required packages first, i.e. run:
-```
-pip install -r requirements.txt
-```
-and please also run:
 
-```
-python -m spacy download de
-```
+## Milestone one: Project State
+
+
