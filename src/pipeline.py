@@ -7,25 +7,23 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
 
 
-# returns list with strings containing the text of a tweet
-# filename must be like : "#Formel1.json"
 def read_from_storage(filename):
     """
     IN:
-    filename (string): one filename of a json in storage in the form: "<trend>.json"
+    file_name (str): one trend in the form "<trend>.json"
     OUT:
-    data (List): a list of string, each containing the raw text data from one tweet
+    tweets (list): text of all tweets of the trend
     """
     current_dir = os.path.dirname(os.path.abspath(__file__))
     path = current_dir + '/../storage/' + filename
-    data = []
+    tweets = []
 
     with open(path, 'r') as file:
         tweets_json = json.load(file)
         for tweet in tweets_json:
-            data.append(tweet["text"])
+            tweets.append(tweet["text"])
 
-    return data
+    return tweets
 
 
 def clean_tweets(trend_from_storage):

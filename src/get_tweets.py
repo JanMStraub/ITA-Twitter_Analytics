@@ -123,7 +123,7 @@ def get_tweets(total_amount, query):
 def save_tweets_to_storage(trend_amount, total_amount):
     """
     IN:
-    trend_amount (int): amount of top trends to fetch
+    trend_amount (int): amount of top trends to fetch (50 at max)
     total_amount (int): amount of tweets to fetch per trend
     OUT:
     None (json created in storage)
