@@ -5,7 +5,7 @@ maxschoeneberger@t-online.de
 Jan Straub,
 jan.straub@stud.uni-heidelberg.de
 
-Paavo Streibich,          
+Paavo Streibich,
 kf223@uni-heidelberg.de
 
 Robin Viellieber,
