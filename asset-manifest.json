@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ITA-Twitter_Analytics/static/css/main.803e43f4.chunk.css",
+    "main.js": "/ITA-Twitter_Analytics/static/js/main.c568ca41.chunk.js",
+    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.c568ca41.chunk.js.map",
+    "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.5822ddb3.js",
+    "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.5822ddb3.js.map",
+    "static/js/2.77c2486a.chunk.js": "/ITA-Twitter_Analytics/static/js/2.77c2486a.chunk.js",
+    "static/js/2.77c2486a.chunk.js.map": "/ITA-Twitter_Analytics/static/js/2.77c2486a.chunk.js.map",
+    "static/js/3.1fd09e91.chunk.js": "/ITA-Twitter_Analytics/static/js/3.1fd09e91.chunk.js",
+    "static/js/3.1fd09e91.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.1fd09e91.chunk.js.map",
+    "index.html": "/ITA-Twitter_Analytics/index.html",
+    "static/css/main.803e43f4.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.803e43f4.chunk.css.map",
+    "static/js/2.77c2486a.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.77c2486a.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/ITA-Twitter_Analytics/static/media/BebasNeue-Thin.9c552d8d.ttf",
+    "static/media/App.css": "/ITA-Twitter_Analytics/static/media/background1.b4cc66ca.png",
+    "static/media/results.css": "/ITA-Twitter_Analytics/static/media/background2.1f1770fb.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5822ddb3.js",
+    "static/js/2.77c2486a.chunk.js",
+    "static/css/main.803e43f4.chunk.css",
+    "static/js/main.c568ca41.chunk.js"
+  ]
+}
