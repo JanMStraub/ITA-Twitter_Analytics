@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    background-color: #191919;
+    text-align: center;
+    padding: 1em;
+    justify-content: flex-start;
+    clear: both;
+    position: relative;
+    margin-top: -51px;
+  }
+  
+  footer ul {
+    display: flex;
+    margin-top: 3px;
+  }
+  
+  .copyright {
+    color: #A9A9A9;
+  }

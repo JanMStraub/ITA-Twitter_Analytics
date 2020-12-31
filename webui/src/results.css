@@ -1,0 +1,11 @@
+.results {
+    padding: 1em;
+    background-image: url(./images/background2.png);
+    height: 1200px;
+    background-size: cover;
+}
+
+h2 {
+    text-align: center;
+    font-size: 4em;
+}

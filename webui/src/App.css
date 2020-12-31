@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #464646;
+  color: white;
+  height: 100%;
+}
+
+.wrapper {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+.hero_wrapper {
+  background-image: url('./images/background1.png');
+  background-position: center;
+  text-align: center;
+
+  position: relative;
+  margin: 0 auto;
+
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+h1 {
+  margin: 2.5em auto 1.7em;
+  font-size: 6em;
+  max-width: 1100px;
+}
+
+button {
+  font-size: 4em;
+  font-family: 'BebasNeue';
+  background-color: #272727;
+  border-color: red;
+  border-width: 1px;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 20px 0px;
+  cursor: pointer;
+  transition: background 0.2s linear 0.1s , color 0.2s linear 0s;
+}
+button:hover {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,41 @@
+@font-face {
+  font-family: BebasNeue;
+  src: url('./fonts/BebasNeue-Bold.ttf') format('truetype'),
+  url('./fonts/BebasNeue-Book.ttf') format('truetype'),
+  url('./fonts/BebasNeue-Light.ttf') format('truetype'),
+  url('./fonts/BebasNeue-Regular.ttf') format('truetype'),
+  url('./fonts/BebasNeue-Thin.ttf') format('truetype');
+ }
+
+
+body {
+  font-family: 'BebasNeue';
+}
+
+a {
+  text-decoration: none;
+  color: #A9A9A9;
+}
+
+a:hover {
+  color: white;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  padding: 0 .8em;
+}
+
+#root {
+  height: 100%;
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
