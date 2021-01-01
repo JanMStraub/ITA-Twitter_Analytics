@@ -2,11 +2,12 @@ footer {
     display: flex;
     background-color: #191919;
     text-align: center;
-    padding: 1em;
+    padding: 15px;
     justify-content: flex-start;
     clear: both;
     position: relative;
-    margin-top: -51px;
+    margin-top: -50px;
+    height: 20px;
   }
   
   footer ul {
