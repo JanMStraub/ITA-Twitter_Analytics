@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/ITA-Twitter_Analytics/static/css/main.6db3c6de.chunk.css",
-    "main.js": "/ITA-Twitter_Analytics/static/js/main.1ba2fa65.chunk.js",
-    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.1ba2fa65.chunk.js.map",
-    "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.2b300709.js",
-    "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.2b300709.js.map",
-    "static/js/2.77c2486a.chunk.js": "/ITA-Twitter_Analytics/static/js/2.77c2486a.chunk.js",
-    "static/js/2.77c2486a.chunk.js.map": "/ITA-Twitter_Analytics/static/js/2.77c2486a.chunk.js.map",
-    "static/js/3.dfe191af.chunk.js": "/ITA-Twitter_Analytics/static/js/3.dfe191af.chunk.js",
-    "static/js/3.dfe191af.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.dfe191af.chunk.js.map",
+    "main.js": "/ITA-Twitter_Analytics/static/js/main.772865b1.chunk.js",
+    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.772865b1.chunk.js.map",
+    "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.e0988128.js",
+    "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.e0988128.js.map",
+    "static/js/2.16bd3d85.chunk.js": "/ITA-Twitter_Analytics/static/js/2.16bd3d85.chunk.js",
+    "static/js/2.16bd3d85.chunk.js.map": "/ITA-Twitter_Analytics/static/js/2.16bd3d85.chunk.js.map",
+    "static/js/3.9f7b1b07.chunk.js": "/ITA-Twitter_Analytics/static/js/3.9f7b1b07.chunk.js",
+    "static/js/3.9f7b1b07.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.9f7b1b07.chunk.js.map",
     "index.html": "/ITA-Twitter_Analytics/index.html",
     "static/css/main.6db3c6de.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.6db3c6de.chunk.css.map",
-    "static/js/2.77c2486a.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.77c2486a.chunk.js.LICENSE.txt",
+    "static/js/2.16bd3d85.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.16bd3d85.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ITA-Twitter_Analytics/static/media/BebasNeue-Thin.9c552d8d.ttf",
     "static/media/App.css": "/ITA-Twitter_Analytics/static/media/background1.b4cc66ca.png",
     "static/media/mobile_notify.css": "/ITA-Twitter_Analytics/static/media/background2.1f1770fb.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.2b300709.js",
-    "static/js/2.77c2486a.chunk.js",
+    "static/js/runtime-main.e0988128.js",
+    "static/js/2.16bd3d85.chunk.js",
     "static/css/main.6db3c6de.chunk.css",
-    "static/js/main.1ba2fa65.chunk.js"
+    "static/js/main.772865b1.chunk.js"
   ]
 }
