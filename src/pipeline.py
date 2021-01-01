@@ -15,7 +15,7 @@ def read_from_storage(filename):
     tweets (list): text of all tweets of the trend
     """
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    path = current_dir + '/../storage/' + filename
+    path = current_dir + '/../storage/jsons/' + filename
     tweets = []
 
     with open(path, 'r') as file:
