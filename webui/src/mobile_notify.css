@@ -1,0 +1,20 @@
+.mobile {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    background-image: url('./images/background2.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .mobile {
+        visibility: visible;
+    }
+
+    .wrapper {
+        overflow: hidden;
+    }
+}
