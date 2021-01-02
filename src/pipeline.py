@@ -25,7 +25,7 @@ def read_from_storage(filename):
 
     return tweets
 
-
+# die jet nisch
 def clean_tweets(trend_from_storage):
     """
     IN:
@@ -60,9 +60,31 @@ def clean_tweets(trend_from_storage):
 
     return lemmatized_dict
 
+def clean_tweets_twopointo(trend_from_storage):
+    """
+    IN:
+    trend_from_storage (string): one trend in the form "<trend>.json"
+    OUT:
+    lemmatized_dict (dict): preprocessed data dict for that trend, structure: {"word": <word count>, ...}
+    """
+
+    # load nltk stopwords
+    nltk.download('stopwords')
+    # load NLP for tokenisation/lemmatization
+    nlp = spacy.load('de_core_news_sm')
+    nlp.disable_pipes('tagger', 'parser', 'ner')
+
+    tweets = read_from_storage(trend_from_storage)
+
+    for line in tweets:
+        doc = nlp(line)
+        # token_list = [token for token in doc]
+        filtered_tokens = [token for token in doc if not token.is_stop]
+        lemmas = [token.lemma_ for token in filtered_tokens]
+        print(lemmas)
 
 if __name__ == "__main__":
 
-    print(clean_tweets("TEST.json"))
+    clean_tweets_twopointo("TEST.json")
     # print(data_dict)
     print("\nYou are doing great! :)")  # Motivational Message
