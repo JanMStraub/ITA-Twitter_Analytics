@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITA-Twitter_Analytics/static/css/main.b76f1d64.chunk.css",
-    "main.js": "/ITA-Twitter_Analytics/static/js/main.8e8531cb.chunk.js",
-    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.8e8531cb.chunk.js.map",
+    "main.css": "/ITA-Twitter_Analytics/static/css/main.4e524097.chunk.css",
+    "main.js": "/ITA-Twitter_Analytics/static/js/main.87a52289.chunk.js",
+    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.87a52289.chunk.js.map",
     "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.15ace653.js",
     "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.15ace653.js.map",
     "static/js/2.8e260445.chunk.js": "/ITA-Twitter_Analytics/static/js/2.8e260445.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.2351ecec.chunk.js": "/ITA-Twitter_Analytics/static/js/3.2351ecec.chunk.js",
     "static/js/3.2351ecec.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.2351ecec.chunk.js.map",
     "index.html": "/ITA-Twitter_Analytics/index.html",
-    "static/css/main.b76f1d64.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.b76f1d64.chunk.css.map",
+    "static/css/main.4e524097.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.4e524097.chunk.css.map",
     "static/js/2.8e260445.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.8e260445.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ITA-Twitter_Analytics/static/media/BebasNeue-Thin.9c552d8d.ttf",
     "static/media/LandingPage.css": "/ITA-Twitter_Analytics/static/media/background1.b4cc66ca.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.15ace653.js",
     "static/js/2.8e260445.chunk.js",
-    "static/css/main.b76f1d64.chunk.css",
-    "static/js/main.8e8531cb.chunk.js"
+    "static/css/main.4e524097.chunk.css",
+    "static/js/main.87a52289.chunk.js"
   ]
 }
