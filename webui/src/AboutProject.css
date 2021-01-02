@@ -1,0 +1,17 @@
+.aboutproject h1 {
+    text-align: center;
+    font-size: x-large;
+}
+
+.aboutproject {
+    height: 100%;
+}
+
+.hero_wrapper {
+    background-image: url('./images/background2.png');
+    background-size: cover;
+    background-position-y: top;
+  
+    height: 100% !important;
+    min-height: 100% !important;
+  }
