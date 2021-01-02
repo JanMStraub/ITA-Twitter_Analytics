@@ -2,3 +2,5 @@ requests
 nltk==3.5
 spacy
 sklearn
+wordcloud
+matplotlib
