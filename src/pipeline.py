@@ -61,6 +61,7 @@ def clean_tweets(trend_from_storage):
 
     return lemmatized_dict
 
+# not quite finished yet
 def clean_tweets_twopointo(trend_from_storage):
     """
     IN:
@@ -104,5 +105,5 @@ def clean_tweets_twopointo(trend_from_storage):
 
 if __name__ == "__main__":
 
-    print(clean_tweets_twopointo("#Formel1.json").get("Vettel"))
+    print(clean_tweets("#Formel1.json"))
     print("\nYou are doing great! :)")  # Motivational Message
