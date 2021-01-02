@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import LandingPage from './LandingPage';
 import AboutProject from './AboutProject';
 import Mobile from './mobile_notifiy';
-import Navbar from './navbar';
-import Botbar from './botbar';
 
 class App extends Component {
   constructor() {
@@ -13,7 +11,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Mobile />
           <Switch>
