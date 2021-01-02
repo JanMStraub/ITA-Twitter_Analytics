@@ -31,8 +31,8 @@ def multi_color_func(word=None, font_size=None,
 
 def make_circle():
     # code from https://codefires.com/how-create-word-cloud-python/
-    # makes the circle using numpy
-    x, y = np.ogrid[:700, :700]
+    # makes elliptic shape using numpy
+    x, y = np.ogrid[:500, :700]
     mask = (x - 350) ** 2 + (y - 350) ** 2 > 350 ** 2
     mask = 255 * mask.astype(int)
     return mask

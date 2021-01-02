@@ -42,9 +42,6 @@ def main():
 
     # TODO: work with data
     # TODO: parse results to frontend
-    # TODO: update Pipeline to filter '`´" 
-    # TODO: update Pipeline to filter _
-    # TODO: update Pipeline to filter links
 
 
 if __name__ == "__main__":
