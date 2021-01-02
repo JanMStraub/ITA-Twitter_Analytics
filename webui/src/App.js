@@ -11,6 +11,8 @@ class App extends Component {
     super();
   }
 
+//TODO: Change default url to janmstraub.github.io/TwitterAnalytics
+
   render() {
     return (
       <Router>

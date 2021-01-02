@@ -11,7 +11,7 @@ function AboutProject() {
     return (
         <div className="aboutproject">
             <Helmet><title>{ TITLE }</title></Helmet>
-            <div className="hero_wrapper">
+            <div className="hero_wrapper_about">
                 <Navbar />
                 <h1>About the Project</h1>
             </div>

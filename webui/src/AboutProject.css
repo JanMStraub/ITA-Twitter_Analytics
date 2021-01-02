@@ -7,7 +7,7 @@
     height: 100%;
 }
 
-.hero_wrapper {
+.hero_wrapper_about {
     background-image: url('./images/background2.png');
     background-size: cover;
     background-position-y: top;
