@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet'
 import scrollToComponent from 'react-scroll-to-component';
 import Navbar from './navbar';
 import Botbar from './botbar';
 import Results from './results';
 import Mobile from './mobile_notifiy';
+
+const TITLE = "Twitter Trend Analytics"
 
 class App extends Component {
   constructor() {
@@ -32,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
+        <Helmet><title>{ TITLE }</title></Helmet>
         <Mobile />
         <div className="hero_wrapper">
           <Navbar />

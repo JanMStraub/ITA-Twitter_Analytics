@@ -2,3 +2,5 @@ requests
 nltk==3.5
 spacy
 sklearn
+flask
+flask-cors
