@@ -25,7 +25,7 @@ def read_from_storage(filename):
 
     return tweets
 
-# die jet nisch
+# die jet wieder!
 def clean_tweets(trend_from_storage):
     """
     IN:
@@ -46,17 +46,18 @@ def clean_tweets(trend_from_storage):
 
     german_stop_words = stopwords.words('german')
     vectorizer = CountVectorizer(analyzer="word", lowercase=True, stop_words=german_stop_words)
-    vectorizer.fit_transform(tweets)
+    X = vectorizer.fit_transform(tweets).toarray()
 
     lemmatized_dict = {}
     sorted_list = dict(vectorizer.vocabulary_.items())
 
     for string in list(sorted_list.keys()):
+        index = sorted_list[string]
         for t in nlp.tokenizer(string):
             if t.lemma_ not in lemmatized_dict:
-                lemmatized_dict[t.lemma_] = sorted_list[string]
+                lemmatized_dict[t.lemma_] = X[0:X.shape[0], index].sum()
             else:
-                lemmatized_dict[t.lemma_] += sorted_list[string]
+                lemmatized_dict[t.lemma_] += X[0:X.shape[0], index].sum()
 
     return lemmatized_dict
 
