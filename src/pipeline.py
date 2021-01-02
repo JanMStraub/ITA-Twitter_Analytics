@@ -75,16 +75,33 @@ def clean_tweets_twopointo(trend_from_storage):
     nlp.disable_pipes('tagger', 'parser', 'ner')
 
     tweets = read_from_storage(trend_from_storage)
+    # remove numbers
+    for index in range(len(tweets)):
+        tweets[index] = re.sub(r'[\d]', '', tweets[index])
+
+    lemmatized_dict = {}
+    sorted_list = []
 
     for line in tweets:
         doc = nlp(line)
         # token_list = [token for token in doc]
         filtered_tokens = [token for token in doc if not token.is_stop]
         lemmas = [token.lemma_ for token in filtered_tokens]
-        print(lemmas)
+        # might change to a list comprehension
+        while(" " in lemmas):
+            lemmas.remove(" ")
+        sorted_list.append(lemmas)
+    
+    for token_list in sorted_list:
+        for token in token_list:          
+            if not lemmatized_dict.get(token):
+                lemmatized_dict[token] = 1
+            else:
+                lemmatized_dict[token] += 1
+
+    return lemmatized_dict
 
 if __name__ == "__main__":
 
-    clean_tweets_twopointo("TEST.json")
-    # print(data_dict)
+    print(clean_tweets_twopointo("#Formel1.json").get("Vettel"))
     print("\nYou are doing great! :)")  # Motivational Message
