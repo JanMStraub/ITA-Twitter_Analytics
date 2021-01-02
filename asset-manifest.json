@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITA-Twitter_Analytics/static/css/main.4e524097.chunk.css",
-    "main.js": "/ITA-Twitter_Analytics/static/js/main.87a52289.chunk.js",
-    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.87a52289.chunk.js.map",
+    "main.css": "/ITA-Twitter_Analytics/static/css/main.c89a32a5.chunk.css",
+    "main.js": "/ITA-Twitter_Analytics/static/js/main.e046cbc3.chunk.js",
+    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.e046cbc3.chunk.js.map",
     "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.15ace653.js",
     "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.15ace653.js.map",
     "static/js/2.8e260445.chunk.js": "/ITA-Twitter_Analytics/static/js/2.8e260445.chunk.js",
@@ -10,16 +10,18 @@
     "static/js/3.2351ecec.chunk.js": "/ITA-Twitter_Analytics/static/js/3.2351ecec.chunk.js",
     "static/js/3.2351ecec.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.2351ecec.chunk.js.map",
     "index.html": "/ITA-Twitter_Analytics/index.html",
-    "static/css/main.4e524097.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.4e524097.chunk.css.map",
+    "static/css/main.c89a32a5.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.c89a32a5.chunk.css.map",
     "static/js/2.8e260445.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.8e260445.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ITA-Twitter_Analytics/static/media/BebasNeue-Thin.9c552d8d.ttf",
     "static/media/LandingPage.css": "/ITA-Twitter_Analytics/static/media/background1.b4cc66ca.png",
-    "static/media/AboutProject.css": "/ITA-Twitter_Analytics/static/media/background2.62f81cef.png"
+    "static/media/AboutProject.css": "/ITA-Twitter_Analytics/static/media/background2.62f81cef.png",
+    "static/media/headertext.df3e7990.png": "/ITA-Twitter_Analytics/static/media/headertext.df3e7990.png",
+    "static/media/pipeline.49a091d9.png": "/ITA-Twitter_Analytics/static/media/pipeline.49a091d9.png"
   },
   "entrypoints": [
     "static/js/runtime-main.15ace653.js",
     "static/js/2.8e260445.chunk.js",
-    "static/css/main.4e524097.chunk.css",
-    "static/js/main.87a52289.chunk.js"
+    "static/css/main.c89a32a5.chunk.css",
+    "static/js/main.e046cbc3.chunk.js"
   ]
 }
