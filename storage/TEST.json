@@ -1,0 +1,38 @@
+[
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "0",
+        "lang": "de",
+        "text": "Dies ist ein Test! Halleluja"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "1",
+        "lang": "de",
+        "text": "Dies ist ein Test! Halleluja"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "2",
+        "lang": "de",
+        "text": "Dies ist ein Test! Tag"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "3",
+        "lang": "de",
+        "text": "Dies ist ein Test! Tag"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "4",
+        "lang": "de",
+        "text": "Dies ist ein Test! Tag"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "5",
+        "lang": "de",
+        "text": "Dies ist ein Test! https://www.youtube.com/watch?v=rOaKyH858yY"
+    }
+]

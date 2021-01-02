@@ -1,0 +1,2 @@
+- update pipeline to filter ', ´,`, _ and links.
+- make new pipeline picture

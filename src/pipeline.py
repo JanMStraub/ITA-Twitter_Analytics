@@ -65,5 +65,6 @@ def clean_tweets(trend_from_storage):
 
 if __name__ == "__main__":
 
-    clean_tweets("#Formel1.json")
+    print(clean_tweets("TEST.json"))
+    # print(data_dict)
     print("\nYou are doing great! :)")  # Motivational Message
