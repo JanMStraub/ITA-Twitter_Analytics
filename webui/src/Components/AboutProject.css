@@ -1,5 +1,5 @@
 .hero_wrapper_about {
-    background-image: url('./images/background2.png');
+    background-image: url('../images/background2.png');
     background-size: cover;
     background-position-y: top;
     text-align: left;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import LandingPage from './LandingPage';
-import AboutProject from './AboutProject';
-import Mobile from './mobile_notifiy';
+import LandingPage from './Components/LandingPage';
+import AboutProject from './Components/AboutProject';
+import Mobile from './Components/mobile_notifiy';
 
 class App extends Component {
   constructor() {

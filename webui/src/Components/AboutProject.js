@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet'
 import Navbar from './navbar';
 import Botbar from './botbar';
 import './AboutProject.css'
-import headertext from './images/headertext.png'
-import pipeline from './images/pipeline.png'
+import headertext from '../images/headertext.png'
+import pipeline from '../images/pipeline.png'
 
 const TITLE = "About the Project"
 

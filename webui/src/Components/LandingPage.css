@@ -12,7 +12,7 @@ body {
 }
 
 .hero_wrapper {
-  background-image: url('./images/background1.png');
+  background-image: url('../images/background1.png');
   background-position: center;
   background-size: cover;
   text-align: center;
