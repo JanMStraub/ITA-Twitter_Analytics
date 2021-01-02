@@ -1,17 +1,66 @@
-.aboutproject h1 {
-    text-align: center;
-    font-size: x-large;
-}
-
-.aboutproject {
-    height: 100%;
-}
-
 .hero_wrapper_about {
     background-image: url('./images/background2.png');
     background-size: cover;
     background-position-y: top;
+    text-align: left;
   
-    height: 100% !important;
-    min-height: 100% !important;
-  }
+    height: fit-content;
+    
+}
+
+.heading {
+    display: block;
+    width: 60%;
+    height: auto;
+    margin: 1em auto 3em;
+}
+
+.project {
+    padding-bottom: 15em;
+}
+
+.motivation {
+    padding: 6em 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.description {
+    padding: 6em 0;
+}
+
+.pipeline {
+    padding: 6em 0;
+    background-color: rgba(49, 49, 49, 0.40);
+    
+    display: flex;
+}
+
+.pipeline h4 {
+    margin-left: 7em;
+}
+
+.pipeline p {
+    margin-left: 11em;
+}
+
+.pipeline_graph {
+    width: 40%;
+    height: auto;
+    margin-right: 8em;
+}
+
+p {
+    margin: 0 auto;
+    font-size: x-large;
+    width: 50%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h4 {
+    font-size: xx-large;
+    text-align: start;
+    margin-left: 12em;
+    margin-block-start: 0;
+    margin-bottom: 3em;
+    font-family: 'Times New Roman', Times, serif;
+}

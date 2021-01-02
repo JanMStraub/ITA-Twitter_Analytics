@@ -4,14 +4,12 @@ import LandingPage from './LandingPage';
 import AboutProject from './AboutProject';
 import Mobile from './mobile_notifiy';
 import Navbar from './navbar';
-import Botbar from './botbar'
+import Botbar from './botbar';
 
 class App extends Component {
   constructor() {
     super();
   }
-
-//TODO: Change default url to janmstraub.github.io/TwitterAnalytics
 
   render() {
     return (
@@ -19,9 +17,9 @@ class App extends Component {
         <div className="App">
           <Mobile />
           <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/aboutproject" component={AboutProject} />
-            <Redirect to="/" />
+            <Route path="/ITA-Twitter_Analytics" exact component={LandingPage} />
+            <Route path="/ITA-Twitter_Analytics/aboutproject" component={AboutProject} />
+            <Redirect to="/ITA-Twitter_Analytics" />
           </Switch>
         </div>
       </Router>

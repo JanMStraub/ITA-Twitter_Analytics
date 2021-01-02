@@ -8,9 +8,9 @@ function Navbar() {
       <div className="navigation">
         <nav>
           <ul> 
-            <Link to="/"><li>Analytics</li></Link>
-            <Link to="/aboutproject"><li>About The Project</li></Link>
-            <Link to="/aboutus"><li>About US</li></Link>
+            <Link to="/ITA-Twitter_Analytics"><li>Analytics</li></Link>
+            <Link to="/ITA-Twitter_Analytics/aboutproject"><li>About The Project</li></Link>
+            <Link to="/ITA-Twitter_Analytics/aboutus"><li>About US</li></Link>
           </ul>
         </nav>
       </div>
