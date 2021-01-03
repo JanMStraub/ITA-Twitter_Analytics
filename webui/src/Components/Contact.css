@@ -24,26 +24,26 @@ form {
     width: 30%;
 }
 
-.small_input {
-    width: 65%;
+.input {
+    width: 80%;
     margin: 0 auto;
 }
 
 h5 {
     margin-block-end: 0;
     letter-spacing: .3em;
-    color: #e9d900;
+    color: #d5c61a;
 }
 
 input {
-    background-color: #202020;
+    background-color: #212121;
     border-width: 1px;
     border-color: red;
     border-radius: 6px;
     width: 100%;
     height: 2em;
     color: white;
-    padding-left: 0.4em;
+    padding-left: 0.6em;
     font-size: large;
     margin: 0 auto;
     font-family: 'BebasNeue';
@@ -55,14 +55,13 @@ input {
 
 .input_message {
     width: 100%;
-    margin: 0 auto;
 
     background-color: #202020;
     border-width: 1px;
     border-color: red;
     border-radius: 6px;
     color: white;
-    padding: 0.4em;
+    padding: .4em 0 0 .6em;
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -77,17 +76,18 @@ textarea {
 
 .submit_contact {
     font-family: 'BebasNeue';
-    font-size: 0.5em;
-    background-color: #272727;
+    font-size: 0.7em;
+    background-color: #1A1A1A;
     border-color: red;
     border-width: 2px;
-    border-radius: 25px;
-    padding: 7px 15px 0px;
+    border-radius: 17px;
     cursor: pointer;
     transition: background 0.2s linear 0.1s , color 0.2s linear 0s;
     letter-spacing: .3em;
-    color: #e9d900;
-    width: min-content;
+    padding: 7px 20px 0px;
+    color: #d5c61a;
+    width: 40%;
+    height: 1.4em;
 }
 
 .submit_contact:hover {

@@ -7,6 +7,12 @@
   url('./fonts/BebasNeue-Thin.ttf') format('truetype');
  }
 
+ @font-face {
+  font-family: Montserat;
+  src: url('./fonts/Montserrat-Medium.ttf') format('truetype'),
+  url('./fonts/Montserrat-MediumItalic.ttf') format('truetype')
+ }
+
 body {
   font-family: 'BebasNeue';
 }

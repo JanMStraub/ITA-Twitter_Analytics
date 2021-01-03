@@ -7,9 +7,9 @@
 
 .heading {
     display: block;
-    width: 60%;
+    width: 50%;
     height: auto;
-    margin: 1em auto 3em;
+    margin: 2em auto 3em;
 }
 
 .project {
@@ -50,7 +50,8 @@ p {
     margin: 0 auto;
     font-size: x-large;
     width: 50%;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserat';
+    text-decoration: none;
 }
 
 h4 {
@@ -59,5 +60,5 @@ h4 {
     margin-left: 12em;
     margin-block-start: 0;
     margin-bottom: 3em;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserat';
 }

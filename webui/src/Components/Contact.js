@@ -15,15 +15,15 @@ function Contact() {
                 <Navbar />
                 <img className="heading" src={headertext} alt="Contact Us" />
                 <form>
-                    <div className="small_input">
+                    <div className="input">
                         <h5>Name</h5>
                         <input type="text" name="" placeholder="Your Name..." />
                     </div>
-                    <div className="small_input">
+                    <div className="input">
                         <h5>email</h5>
                         <input type="text" name="" placeholder="Your Email..." />
                     </div>
-                    <div>
+                    <div className="input">
                         <h5>message</h5>
                         <div className="message_spacing">
                             <textarea className="input_message" rows="5" name="" placeholder="Your message..." />
