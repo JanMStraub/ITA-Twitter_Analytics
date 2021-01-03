@@ -1,21 +1,101 @@
 .contact {
     height: 100%;
+    overflow: hidden;
 }
 
 .hero_wrapper_contact {
     background-image: url('../images/background3.png');
     background-size: contain;
     background-position-y: top;
-    text-align: center;
+    text-align: left;
     height: 100%;
 }
 
 .hero_wrapper_contact .heading {
-    width: 45%;
+    width: 30%;
     height: auto;
     margin-top: 5em;
 }
 
 form {
-    padding-bottom: 5em;
+    font-size: 3em;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    width: 30%;
+}
+
+.small_input {
+    width: 65%;
+    margin: 0 auto;
+}
+
+h5 {
+    margin-block-end: 0;
+    letter-spacing: .3em;
+    color: #e9d900;
+}
+
+input {
+    background-color: #202020;
+    border-width: 1px;
+    border-color: red;
+    border-radius: 6px;
+    width: 100%;
+    height: 2em;
+    color: white;
+    padding-left: 0.4em;
+    font-size: large;
+    margin: 0 auto;
+    font-family: 'BebasNeue';
+}
+
+.message_spacing{
+    padding-top: .2em;
+}
+
+.input_message {
+    width: 100%;
+    margin: 0 auto;
+
+    background-color: #202020;
+    border-width: 1px;
+    border-color: red;
+    border-radius: 6px;
+    color: white;
+    padding: 0.4em;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input_message::placeholder {
+    font-family: 'BebasNeue';
+}
+
+textarea {
+    resize: none;
+}
+
+.submit_contact {
+    font-family: 'BebasNeue';
+    font-size: 0.5em;
+    background-color: #272727;
+    border-color: red;
+    border-width: 2px;
+    border-radius: 25px;
+    padding: 7px 15px 0px;
+    cursor: pointer;
+    transition: background 0.2s linear 0.1s , color 0.2s linear 0s;
+    letter-spacing: .3em;
+    color: #e9d900;
+    width: min-content;
+}
+
+.submit_contact:hover {
+    background-color: white;
+    color: black;
+  }
+
+.submit_placing {
+    margin-top: .3em;
+    text-align: center;
 }
