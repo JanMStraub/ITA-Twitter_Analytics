@@ -27,7 +27,7 @@ function Navbar() {
       <div className="icons">
         <nav>
           <ul>
-            <li><a href="mailto:viellieber@stud.uni-heidelberg.de">Contact</a></li>
+            <Link to="/contact"><li>Contact</li></Link>
             <li><a href="https://github.com/JanMStraub/ITA-Twitter_Analytics/">Github</a></li>
           </ul>
         </nav>

@@ -14,7 +14,7 @@ footer {
     display: flex;
     margin-top: 3px;
   }
-  
-  .bot_text {
-    color: #A9A9A9;
+
+  footer ul li {
+    padding: 0 0.4em;
   }

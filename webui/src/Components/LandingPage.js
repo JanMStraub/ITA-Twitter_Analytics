@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import scrollToComponent from 'react-scroll-to-component';
 import Navbar from './navbar';
 import Botbar from './botbar';
 import Results from './results';
-import Mobile from './mobile_notifiy';
 import './LandingPage.css'
 
 const TITLE = "Twitter Trend Analytics"

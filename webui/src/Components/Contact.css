@@ -1,0 +1,21 @@
+.contact {
+    height: 100%;
+}
+
+.hero_wrapper_contact {
+    background-image: url('../images/background3.png');
+    background-size: contain;
+    background-position-y: top;
+    text-align: center;
+    height: 100%;
+}
+
+.hero_wrapper_contact .heading {
+    width: 45%;
+    height: auto;
+    margin-top: 5em;
+}
+
+form {
+    padding-bottom: 5em;
+}

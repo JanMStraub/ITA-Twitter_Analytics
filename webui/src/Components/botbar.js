@@ -1,12 +1,14 @@
 import React from 'react';
 import './botbar.css'
+import { Link } from 'react-router-dom';
 
 function Botbar() {
     return (
       <footer>
         <ul>
-          <li><a href="#">Impressum</a></li>
-          <li className="bot_text">Copyright oder so 2020</li>
+          <Link to="/imprint"><li>Imprint</li></Link>
+          <Link to="/privacy"><li>Privacy Notice</li></Link>
+          <Link to="/agb"><li>AGB'S</li></Link>
         </ul>
       </footer>
     )
