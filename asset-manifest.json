@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITA-Twitter_Analytics/static/css/main.8d383f05.chunk.css",
-    "main.js": "/ITA-Twitter_Analytics/static/js/main.4f0f754f.chunk.js",
-    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.4f0f754f.chunk.js.map",
+    "main.css": "/ITA-Twitter_Analytics/static/css/main.debbd214.chunk.css",
+    "main.js": "/ITA-Twitter_Analytics/static/js/main.b73f7edd.chunk.js",
+    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.b73f7edd.chunk.js.map",
     "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.c5d576a7.js",
     "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.c5d576a7.js.map",
     "static/js/2.9ea8a533.chunk.js": "/ITA-Twitter_Analytics/static/js/2.9ea8a533.chunk.js",
@@ -10,9 +10,9 @@
     "static/js/3.93383ad5.chunk.js": "/ITA-Twitter_Analytics/static/js/3.93383ad5.chunk.js",
     "static/js/3.93383ad5.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.93383ad5.chunk.js.map",
     "index.html": "/ITA-Twitter_Analytics/index.html",
-    "static/css/main.8d383f05.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.8d383f05.chunk.css.map",
+    "static/css/main.debbd214.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.debbd214.chunk.css.map",
     "static/js/2.9ea8a533.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.9ea8a533.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/ITA-Twitter_Analytics/static/media/BebasNeue-Thin.9c552d8d.ttf",
+    "static/media/index.css": "/ITA-Twitter_Analytics/static/media/Montserrat-MediumItalic.54b24d99.ttf",
     "static/media/LandingPage.css": "/ITA-Twitter_Analytics/static/media/background1.b4cc66ca.png",
     "static/media/mobile_notify.css": "/ITA-Twitter_Analytics/static/media/background2.62f81cef.png",
     "static/media/Contact.css": "/ITA-Twitter_Analytics/static/media/background3.2d13159f.png",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.c5d576a7.js",
     "static/js/2.9ea8a533.chunk.js",
-    "static/css/main.8d383f05.chunk.css",
-    "static/js/main.4f0f754f.chunk.js"
+    "static/css/main.debbd214.chunk.css",
+    "static/js/main.b73f7edd.chunk.js"
   ]
 }
