@@ -1,2 +1,4 @@
-- update pipeline to filter ', ´,`, _ and links.
-- make new pipeline picture
+- update pipeline to filter ', ´,`, _.
+- check if wordcloud actually works
+- work with data
+- parse results to frontend
