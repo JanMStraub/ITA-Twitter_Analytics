@@ -84,13 +84,15 @@ def remove_numbers_and_links(tweets):
     return tweets
 
 
-def get_links_from_tweet(tweets):
+def get_links_from_tweet(trend_from_storage):
     """
     IN:
     tweets (list): text of all tweets of the trend
     OUT:
     extracted_links (list): list containing all links in on trend
     """
+
+    tweets = read_from_storage(trend_from_storage)
 
     extracted_links = []
 
@@ -99,7 +101,7 @@ def get_links_from_tweet(tweets):
         if re.search(link_string, tweet):
             extracted_links.append(re.findall(link_string, tweet))
 
-    return remove_duplicate_links(extracted_links)
+    return count_links(extracted_links)
 
 
 def remove_numbers_and_links(tweets):
