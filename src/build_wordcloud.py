@@ -9,6 +9,7 @@ from pipeline import clean_tweets
 current_dir = os.path.dirname(os.path.abspath(__file__))
 trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
 
+# currently not in use
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
 def similar_color_func(word=None, font_size=None,
                        position=None, orientation=None,
@@ -42,11 +43,11 @@ def make_circle():
     mask = 255 * mask.astype(int)
     return mask
 
-def save_wordcloud_to_storage(trend_name, wordcloud):
+def create_and_save_wordcloud_to_storage(trend_name, wordcloud):
     """
     IN:
     trend_name (str): one trend in the form "<trend>"
-    wordcloud (wordcloud)
+    wordcloud (wordcloud): wordcloud of most common words in a trend
     OUT:
     None (png created in storage/wordclouds)
     """
@@ -81,7 +82,7 @@ def get_most_common(trend, data):
         background_color=None, mode='RGBA', max_words=200, random_state=42, width=1000, height=1000,
         color_func=multi_color_func, mask=make_circle()).generate(most_common_str)
 
-    save_wordcloud_to_storage(trend, wordcloud)
+    create_and_save_wordcloud_to_storage(trend, wordcloud)
 
 if __name__ == "__main__":
 
