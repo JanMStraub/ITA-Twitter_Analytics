@@ -26,6 +26,7 @@ def read_from_storage(filename):
 
     return tweets
 
+
 def count_links(extracted_links):
     """
     IN:
@@ -66,6 +67,7 @@ def get_links_from_tweet(trend_from_storage):
     
     return count_links(extracted_links)
 
+
 def remove_numbers_and_links(tweets):
     """
     IN:
@@ -80,6 +82,43 @@ def remove_numbers_and_links(tweets):
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
     
     return tweets
+
+
+def get_links_from_tweet(trend_from_storage):
+    """
+    IN:
+    tweets (list): text of all tweets of the trend
+    OUT:
+    extracted_links (list): list containing all links in on trend
+    """
+
+    tweets = read_from_storage(trend_from_storage)
+
+    extracted_links = []
+
+    link_string = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
+    for tweet in tweets:
+        if re.search(link_string, tweet):
+            extracted_links.append(re.findall(link_string, tweet))
+
+    return count_links(extracted_links)
+
+
+def remove_numbers_and_links(tweets):
+    """
+    IN:
+    tweets (list): text of all tweets of the trend
+    OUT:
+    tweets (list): text of all tweets of the trend
+    """
+
+    for index in range(len(tweets)):
+        tweets[index] = re.sub(r'[\d]', '', tweets[index])
+        tweets[index] = re.sub(
+            r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
+
+    return tweets
+
 
 def clean_tweets(trend_from_storage):
     """
