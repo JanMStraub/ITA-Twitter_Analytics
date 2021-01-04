@@ -21,13 +21,13 @@
         "created_at": "0000-00-00T00:00:00.000Z",
         "id": "3",
         "lang": "de",
-        "text": "Dies ist ein Test! Tag"
+        "text": "Dies ist ein Test! Tag https://www.youtube.com/watch?v=ERGbgvvCJ8o"
     },
     {
         "created_at": "0000-00-00T00:00:00.000Z",
         "id": "4",
         "lang": "de",
-        "text": "Dies sind Tests! 9 Tage"
+        "text": "Dies sind Tests! 9 Tage. https://www.youtube.com/watch?v=ERGbgvvCJ8o"
     },
     {
         "created_at": "0000-00-00T00:00:00.000Z",

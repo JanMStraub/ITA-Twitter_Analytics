@@ -46,8 +46,6 @@ def save_wordcloud_to_storage(trend_name, wordcloud):
 
         plt.imshow(wordcloud, interpolation="bilinear")
         wordcloud.to_file(path)
-        # plt.axis('off')
-        # plt.savefig(path)
 
         print("Image successfully writen to storage/wordclouds/" + name)
 
@@ -58,6 +56,7 @@ def save_wordcloud_to_storage(trend_name, wordcloud):
 def get_most_common(trend, data):
     # run pipeline for all tweets from each trend to get preprocessed data
     most_common = sorted(data, key=data.get, reverse=True)
+    most_common_str = ' '.join(most_common)
     wordcloud = WordCloud(
         background_color=None, mode='RGBA', max_words=200, random_state=42, width=1000, height=1000,
         color_func=multi_color_func, mask=make_circle()).generate(str(most_common))
