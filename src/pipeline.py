@@ -26,8 +26,7 @@ def read_from_storage(filename):
 
     return tweets
 
-# Not used
-def remove_duplicate_links(extracted_links):
+def count_links(extracted_links):
     """
     IN:
     extracted_links (list): list containing all links in on trend
@@ -35,11 +34,17 @@ def remove_duplicate_links(extracted_links):
     extracted_links_filterd (list): list containing all links in on trend but duplicates are removed
     """
 
-    extracted_links_filterd = []
+    counted_links_dict = {}
 
-    [extracted_links_filterd.append(link) for link in extracted_links if link not in extracted_links_filterd]
-
-    return extracted_links_filterd
+    for link in extracted_links:
+        link_str = ' '.join(link)
+        
+        if counted_links_dict.get(link_str):
+            counted_links_dict[link_str] += 1
+        else:
+            counted_links_dict[link_str] = 1
+        
+    return counted_links_dict
 
 def get_links_from_tweet(tweets):
     """
@@ -56,8 +61,7 @@ def get_links_from_tweet(tweets):
         if re.search(link_string, tweet):
             extracted_links.append(re.findall(link_string, tweet))
     
-
-    return extracted_links
+    return count_links(extracted_links)
 
 def remove_numbers_and_links(tweets):
     """
@@ -115,5 +119,5 @@ def clean_tweets(trend_from_storage):
 
 if __name__ == "__main__":
 
-    print(clean_tweets("Vettel.json"))
+    print(clean_tweets("Test.json"))
     print("\nYou are doing great! :)")  # Motivational Message
