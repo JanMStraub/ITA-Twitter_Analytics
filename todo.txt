@@ -1,4 +1,3 @@
-- update pipeline to filter ', ´,`, _.
 - check if wordcloud actually works
 - work with data
 - parse results to frontend
