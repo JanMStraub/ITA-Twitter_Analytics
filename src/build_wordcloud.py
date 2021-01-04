@@ -15,7 +15,7 @@ def similar_color_func(word=None, font_size=None,
                        font_path=None, random_state=None):
     h = 40  # 0 - 360
     s = 100  # 0 - 100
-    l = random_state.randint(30, 70) # 0 - 100
+    l = random_state.randint(30, 70)  # 0 - 100
     return "hsl({}, {}%, {}%)".format(h, s, l)
 
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
@@ -30,6 +30,11 @@ def multi_color_func(word=None, font_size=None,
     return "hsl({}, {}%, {}%)".format(colors[rand][0], colors[rand][1], colors[rand][2])
 
 def make_circle():
+    """
+    OUT:
+    mask (mask): shaped mask
+    """
+
     # code from https://codefires.com/how-create-word-cloud-python/
     # makes elliptic shape using numpy
     x, y = np.ogrid[:500, :700]
@@ -38,6 +43,14 @@ def make_circle():
     return mask
 
 def save_wordcloud_to_storage(trend_name, wordcloud):
+    """
+    IN:
+    trend_name (str): one trend in the form "<trend>"
+    wordcloud (wordcloud)
+    OUT:
+    None (png created in storage/wordclouds)
+    """
+
     name = str(trend_name).removesuffix('.json')
     path = current_dir + '/../storage/wordclouds/' + name + '.png'
 
@@ -46,22 +59,27 @@ def save_wordcloud_to_storage(trend_name, wordcloud):
 
         plt.imshow(wordcloud, interpolation="bilinear")
         wordcloud.to_file(path)
-        # plt.axis('off')
-        # plt.savefig(path)
 
         print("Image successfully writen to storage/wordclouds/" + name)
 
     else:
         print("skipping " + name + " -> already in storage")
 
-
 def get_most_common(trend, data):
+    """
+    IN:
+    trend (str): one trend in the form "<trend>.json"
+    data (dict): preprocessed data dict for that trend, structure: {"word": <word count>, ...}
+    OUT:
+    None (png created in storage/wordclouds)
+    """
+
     # run pipeline for all tweets from each trend to get preprocessed data
     most_common = sorted(data, key=data.get, reverse=True)
     most_common_str = ' '.join(most_common)
     wordcloud = WordCloud(
         background_color=None, mode='RGBA', max_words=200, random_state=42, width=1000, height=1000,
-        color_func=multi_color_func, mask=make_circle()).generate(str(most_common))
+        color_func=multi_color_func, mask=make_circle()).generate(most_common_str)
 
     save_wordcloud_to_storage(trend, wordcloud)
 
