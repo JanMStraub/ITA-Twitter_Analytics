@@ -31,7 +31,7 @@ def count_links(extracted_links):
     IN:
     extracted_links (list): list containing all links in on trend
     OUT:
-    extracted_links_filterd (list): list containing all links in on trend but duplicates are removed
+    counted_links_dict (dict): dict containing number of links and the links itself
     """
 
     counted_links_dict = {}
@@ -46,13 +46,16 @@ def count_links(extracted_links):
         
     return counted_links_dict
 
-def get_links_from_tweet(tweets):
+
+def get_links_from_tweet(trend_from_storage):
     """
     IN:
-    tweets (list): text of all tweets of the trend
+    trend_from_storage (string): one trend in the form "<trend>.json
     OUT:
     extracted_links (list): list containing all links in on trend
     """
+
+    tweets = read_from_storage(trend_from_storage)
 
     extracted_links = []
     
@@ -94,9 +97,6 @@ def clean_tweets(trend_from_storage):
 
     tweets = read_from_storage(trend_from_storage)
 
-    # Get all links in tweets
-    extracted_links = get_links_from_tweet(tweets)
-
     # Remove all numbers and links
     tweets = remove_numbers_and_links(tweets)
 
@@ -115,9 +115,10 @@ def clean_tweets(trend_from_storage):
             else:
                 lemmatized_dict[t.lemma_] += X[0:X.shape[0], index].sum()
 
-    return lemmatized_dict #, extracted_links
+    return lemmatized_dict
 
 if __name__ == "__main__":
 
-    print(clean_tweets("Test.json"))
+    print(get_links_from_tweet("TEST.json"))
+    print(clean_tweets("TEST.json"))
     print("\nYou are doing great! :)")  # Motivational Message
