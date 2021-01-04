@@ -81,6 +81,56 @@ def remove_numbers_and_links(tweets):
     
     return tweets
 
+def remove_duplicate_links(extracted_links):
+    """
+    IN:
+    extracted_links (list): list containing all links in on trend
+    OUT:
+    extracted_links_filterd (list): list containing all links in on trend but duplicates are removed
+    """
+
+    extracted_links_filterd = []
+
+    [extracted_links_filterd.append(
+        link) for link in extracted_links if link not in extracted_links_filterd]
+
+    return extracted_links_filterd
+
+
+def get_links_from_tweet(tweets):
+    """
+    IN:
+    tweets (list): text of all tweets of the trend
+    OUT:
+    extracted_links (list): list containing all links in on trend
+    """
+
+    extracted_links = []
+
+    link_string = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
+    for tweet in tweets:
+        if re.search(link_string, tweet):
+            extracted_links.append(re.findall(link_string, tweet))
+
+    return remove_duplicate_links(extracted_links)
+
+
+def remove_numbers_and_links(tweets):
+    """
+    IN:
+    tweets (list): text of all tweets of the trend
+    OUT:
+    tweets (list): text of all tweets of the trend
+    """
+
+    for index in range(len(tweets)):
+        tweets[index] = re.sub(r'[\d]', '', tweets[index])
+        tweets[index] = re.sub(
+            r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
+
+    return tweets
+
+
 def clean_tweets(trend_from_storage):
     """
     IN:
