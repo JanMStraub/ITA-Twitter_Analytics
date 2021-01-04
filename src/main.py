@@ -41,10 +41,8 @@ def main():
         links = get_links_from_tweet(trend)
         preprocessed_data.append(data)
         get_most_common(trend, data)
-        print(links)
-
-    # TODO: work with data
-    # TODO: parse results to frontend
+        # TODO: work with data
+        # TODO: save results in json/png format in ./storage/results for frontend
 
 
 if __name__ == "__main__":

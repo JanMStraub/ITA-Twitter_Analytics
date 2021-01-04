@@ -1,0 +1,26 @@
+{
+    "keywords": [
+        "keyword0",
+        "keyword1",
+        "keyword2",
+        "keyword3",
+        "keyword4",
+        "keyword5",
+        "keyword6",
+        "keyword7",
+        "keyword8",
+        "keyword9"
+    ],
+    "sentiment" : {
+        "positiv": 0.71,
+        "negativ": 0.11,
+        "neutral": 0.18
+    },
+    "links": {
+        "https://link0.com": 421,
+        "https://link1.com": 233,
+        "https://link2.com": 112,
+        "https://link3.com": 70,
+        "https://link4.com": 67
+    }
+}

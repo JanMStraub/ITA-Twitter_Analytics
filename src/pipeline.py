@@ -31,7 +31,7 @@ def count_links(extracted_links):
     IN:
     extracted_links (list): list containing all links in on trend
     OUT:
-    counted_links_dict (list): list containing all links in on trend but duplicates are removed
+    counted_links_dict (dict): dict containing number of links and the links itself
     """
 
     counted_links_dict = {}
@@ -50,7 +50,7 @@ def count_links(extracted_links):
 def get_links_from_tweet(trend_from_storage):
     """
     IN:
-    tweets (list): text of all tweets of the trend
+    trend_from_storage (string): one trend in the form "<trend>.json
     OUT:
     extracted_links (list): list containing all links in on trend
     """
