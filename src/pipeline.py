@@ -110,7 +110,7 @@ def clean_tweets(trend_from_storage):
             else:
                 lemmatized_dict[t.lemma_] += X[0:X.shape[0], index].sum()
 
-    return lemmatized_dict, extracted_links
+    return lemmatized_dict #, extracted_links
 
 # not quite finished yet
 def clean_tweets_twopointo(trend_from_storage):
