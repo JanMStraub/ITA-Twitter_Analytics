@@ -1,6 +1,7 @@
 import os
 import nltk
 from pipeline import clean_tweets
+from pipeline import get_links_from_tweet
 from get_tweets import save_tweets_to_storage
 from build_wordcloud import get_most_common 
 
@@ -37,8 +38,10 @@ def main():
     preprocessed_data = []
     for trend in trends:
         data = clean_tweets(trend)
+        links = get_links_from_tweet(trend)
         preprocessed_data.append(data)
         get_most_common(trend, data)
+        print(links)
 
     # TODO: work with data
     # TODO: parse results to frontend
