@@ -26,6 +26,7 @@ def read_from_storage(filename):
 
     return tweets
 
+
 def count_links(extracted_links):
     """
     IN:
@@ -66,6 +67,7 @@ def get_links_from_tweet(trend_from_storage):
     
     return count_links(extracted_links)
 
+
 def remove_numbers_and_links(tweets):
     """
     IN:
@@ -80,21 +82,6 @@ def remove_numbers_and_links(tweets):
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
     
     return tweets
-
-def remove_duplicate_links(extracted_links):
-    """
-    IN:
-    extracted_links (list): list containing all links in on trend
-    OUT:
-    extracted_links_filterd (list): list containing all links in on trend but duplicates are removed
-    """
-
-    extracted_links_filterd = []
-
-    [extracted_links_filterd.append(
-        link) for link in extracted_links if link not in extracted_links_filterd]
-
-    return extracted_links_filterd
 
 
 def get_links_from_tweet(tweets):
