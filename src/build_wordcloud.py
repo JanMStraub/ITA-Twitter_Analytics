@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from pipeline import clean_tweets
 
+
 # get all trend filenames from storage
 current_dir = os.path.dirname(os.path.abspath(__file__))
 trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
+
 
 # currently not in use
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
@@ -19,6 +21,7 @@ def similar_color_func(word=None, font_size=None,
     l = random_state.randint(30, 70)  # 0 - 100
     return "hsl({}, {}%, {}%)".format(h, s, l)
 
+
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
 def multi_color_func(word=None, font_size=None,
                      position=None, orientation=None,
@@ -29,6 +32,7 @@ def multi_color_func(word=None, font_size=None,
               [158, 48, 79]]
     rand = random_state.randint(0, len(colors) - 1)
     return "hsl({}, {}%, {}%)".format(colors[rand][0], colors[rand][1], colors[rand][2])
+
 
 def make_circle():
     """
@@ -42,6 +46,7 @@ def make_circle():
     mask = (x - 350) ** 2 + (y - 350) ** 2 > 350 ** 2
     mask = 255 * mask.astype(int)
     return mask
+
 
 def create_and_save_wordcloud_to_storage(trend_name, data):
     """
@@ -68,6 +73,7 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
 
     else:
         print("skipping " + name + " -> already in storage")
+
 
 if __name__ == "__main__":
 
