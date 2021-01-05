@@ -84,22 +84,6 @@ def remove_numbers_and_links(tweets):
     return tweets
 
 
-def remove_numbers_and_links(tweets):
-    """
-    IN:
-    tweets (list): text of all tweets of the trend
-    OUT:
-    tweets (list): text of all tweets of the trend
-    """
-
-    for index in range(len(tweets)):
-        tweets[index] = re.sub(r'[\d]', '', tweets[index])
-        tweets[index] = re.sub(
-            r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
-
-    return tweets
-
-
 def clean_tweets(trend_from_storage):
     """
     IN:
