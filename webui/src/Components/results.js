@@ -6,7 +6,7 @@ class Results extends Component {
     constructor() {
         super()
         this.state = {
-            title: "did not work :("
+            trends: []
         };
         this.getTrends = this.getTrends.bind(this);
     }
@@ -16,9 +16,9 @@ class Results extends Component {
     }
 
     async getTrends() {
-        axios.get("http://localhost:5000/")
+        axios.get("http://localhost:5000/init_analysis")
         .then(response => {
-            this.setState({ title : response.data });
+            this.setState({ trends : response.data });
         })
         .catch(function(error) {
             console.log(error);
@@ -29,6 +29,7 @@ class Results extends Component {
         return (
             <div className="results">
             <h2>Current Trends</h2>
+            <p>{this.state.trends}</p>
         </div>
         )
     }
