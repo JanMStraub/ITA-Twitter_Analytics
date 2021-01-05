@@ -31,6 +31,23 @@ class TestPipelineMethods(unittest.TestCase):
             ["https://www.youtube.com/watch?v=rOaKyH858yY"]
         ]
 
+        self.testdata_remove_numbers_and_links = [
+            "Dies ist ein Test! Halleluja",
+            "Dies ist ein Test! Halleluja",
+            "Dies ist ein Test! Tag",
+            "Dies ist ein Test! Tag ",
+            "Dies sind Tests!  Tage. ",
+            "Dies ist ein Test! "
+        ]
+
+        self.testdata_clean_tweets = {
+            "test": 5,
+            "halleluja": 2,
+            "tag": 2,
+            "tests": 1,
+            "tage": 1
+        }
+
 
     def test_read_from_storage(self):
         """
@@ -48,9 +65,20 @@ class TestPipelineMethods(unittest.TestCase):
 
     def test_get_links_from_tweet(self):
         """
-
+        test if links are filtered correctly
         """
         self.assertEqual(self.testdata_count_links, pipeline.get_links_from_tweet("TEST.json"))
+
+
+    def test_remove_numbers_and_links(self):
+        """
+
+        """
+        self.assertEqual(self.testdata_remove_numbers_and_links, pipeline.remove_numbers_and_links(self.testdata_read_from_storage))
+
+
+    def test_clean_tweets(self):
+        self.assertEqual(self.testdata_clean_tweets, pipeline.clean_tweets("TEST.json"))
 
 
 if __name__ == "__main__":
