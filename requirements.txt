@@ -4,3 +4,6 @@ spacy
 sklearn
 wordcloud
 matplotlib
+flask
+flask-cors
+gunicorn

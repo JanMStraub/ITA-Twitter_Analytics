@@ -3,7 +3,6 @@ import nltk
 from pipeline import clean_tweets
 from pipeline import get_links_from_tweet
 from get_tweets import save_tweets_to_storage
-from build_wordcloud import get_most_common 
 
 
 def setup():
@@ -43,6 +42,8 @@ def main():
         get_most_common(trend, data)
         # TODO: work with data
         # TODO: save results in json/png format in ./storage/results for frontend
+
+        # TODO: should return list of trends for API
 
 
 if __name__ == "__main__":
