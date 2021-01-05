@@ -39,7 +39,6 @@ def main():
         data = clean_tweets(trend)
         links = get_links_from_tweet(trend)
         preprocessed_data.append(data)
-        get_most_common(trend, data)
         # TODO: work with data
         # TODO: save results in json/png format in ./storage/results for frontend
 
