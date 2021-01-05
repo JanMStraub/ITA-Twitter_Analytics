@@ -10,7 +10,6 @@ class TestPipelineMethods(unittest.TestCase):
 
 
     def setUp(self):
-        current_dir = os.path.dirname(os.path.abspath(__file__))
         #self.testdata = open(current_dir + '/../storage/jsons/TEST.json').read()
         self.testdata_read_from_storage = [
             "Dies ist ein Test! Halleluja",
@@ -55,6 +54,10 @@ class TestPipelineMethods(unittest.TestCase):
         """
         self.assertEqual(self.testdata_read_from_storage, pipeline.read_from_storage("TEST.json"))
 
+        #test if not existing file raises errorr
+        with self.assertRaises(FileNotFoundError):
+            pipeline.read_from_storage("penis.json")
+
 
     def test_count_links(self):
         """
@@ -72,7 +75,7 @@ class TestPipelineMethods(unittest.TestCase):
 
     def test_remove_numbers_and_links(self):
         """
-
+        test if all numbers are removed
         """
         self.assertEqual(self.testdata_remove_numbers_and_links, pipeline.remove_numbers_and_links(self.testdata_read_from_storage))
 
