@@ -6,7 +6,7 @@ from pprint import pprint
 
 from pipeline import clean_tweets
 from build_wordcloud import create_and_save_wordcloud_to_storage_lda
-from build_plot import create_and_save_plot
+from build_plot import create_plot
 
 
 # get all trend filenames from storage
@@ -81,12 +81,9 @@ def model_visualization(trend, corpus, lda_model):
     topics = lda_model.show_topics(formatted=False)
     topic_words = dict(topics[0][1])
 
-    for key, value in topic_words.items():
-        topic_words[key] = value * 100
-
-    print(topic_words)
-
+    create_plot(trend, topic_words)
     create_and_save_wordcloud_to_storage_lda(trend, topic_words)
+    
 
 
 

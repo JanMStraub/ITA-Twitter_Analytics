@@ -74,7 +74,7 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
         print("skipping " + name + " -> already in storage")
 
 
-def create_and_save_wordcloud_to_storage_lda(trend_name, lda_model):
+def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words):
     name = str(trend_name).removesuffix('.json')
     path = current_dir + '/../storage/results/' + name + '_lda.png'
 
@@ -83,11 +83,11 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, lda_model):
 
         wordcloud = WordCloud(
             background_color=None, mode='RGBA', max_words=10, random_state=42, width=1000, height=1000,
-            color_func=similar_color_func).generate_from_frequencies(lda_model)
+            color_func=similar_color_func, scale=5).generate_from_frequencies(topic_words)
         plt.imshow(wordcloud, interpolation="bilinear")
         wordcloud.to_file(path)
 
-        print("Image successfully writen to storage/wordclouds/" + name)
+        print("Image successfully writen to storage/results/" + name)
 
     else:
         print("skipping " + name + " -> already in storage")
