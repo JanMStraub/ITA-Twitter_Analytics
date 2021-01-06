@@ -5,7 +5,8 @@ import gensim.models as models
 from pprint import pprint
 
 from pipeline import clean_tweets
-from build_wordcloud import create_and_save_wordcloud_to_storage
+from build_wordcloud import create_and_save_wordcloud_to_storage_lda
+from build_plot import create_and_save_plot
 
 
 # get all trend filenames from storage
@@ -74,22 +75,28 @@ def model_training(corpus, id2word):
     return lda_model
 
 
-def model_visualization(corpus, id2word, lda_model):
-    pprint(lda_model.print_topics())
-    doc_lda = lda_model[corpus]
+def model_visualization(trend, corpus, lda_model):
+    # pprint(lda_model.print_topics())
 
-    return 0
+    topics = lda_model.show_topics(formatted=False)
+    topic_words = dict(topics[0][1])
+
+    for key, value in topic_words.items():
+        topic_words[key] = value * 100
+
+    print(topic_words)
+
+    create_and_save_wordcloud_to_storage_lda(trend, topic_words)
 
 
 
 if __name__ == '__main__':
 
-    for trend in trends[25:26]: # select TEST.json for testing
+    for trend in trends[25:27]: # select TEST.json for testing
         data = clean_tweets(trend)
-        # print(convert_dict_to_list(data))
         list_data = convert_dict_to_list(data)
         corpus_data, id2word_data = preparing_data_for_LDA(list_data)
         lda_model_data = model_training(corpus_data, id2word_data)
-        model_visualization(corpus_data, id2word_data, lda_model_data)
+        model_visualization(trend, corpus_data, lda_model_data)
 
     print("You are doing great! :)")
