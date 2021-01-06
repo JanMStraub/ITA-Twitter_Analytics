@@ -2,8 +2,11 @@ import os
 import gensim.corpora as corpora
 import gensim.models as models
 
-from pipeline import clean_tweets
 from pprint import pprint
+
+from pipeline import clean_tweets
+from build_wordcloud import create_and_save_wordcloud_to_storage
+
 
 # get all trend filenames from storage
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -68,24 +71,25 @@ def model_training(corpus, id2word):
                                            id2word=id2word,
                                            num_topics=num_topics)
 
+    return lda_model
+
+
+def model_visualization(corpus, id2word, lda_model):
     pprint(lda_model.print_topics())
     doc_lda = lda_model[corpus]
 
-    return lda_model
-
-def model_analysis(corpus, id2word, lda_model):
     return 0
 
 
 
 if __name__ == '__main__':
 
-    for trend in trends[25:27]:
+    for trend in trends[25:26]: # select TEST.json for testing
         data = clean_tweets(trend)
         # print(convert_dict_to_list(data))
         list_data = convert_dict_to_list(data)
         corpus_data, id2word_data = preparing_data_for_LDA(list_data)
         lda_model_data = model_training(corpus_data, id2word_data)
-        model_analysis(corpus_data, id2word_data, lda_model_data)
+        model_visualization(corpus_data, id2word_data, lda_model_data)
 
     print("You are doing great! :)")
