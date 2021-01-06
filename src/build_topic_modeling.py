@@ -11,6 +11,7 @@ trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
 
 
 def convert_dict_to_list(data):
+
     word_list = []
     for key in data:
         i = data.get(key)
@@ -24,9 +25,9 @@ def convert_dict_to_list(data):
 
 
 def preparing_data_for_LDA(word_list):
+
     # Create Dictionary
     id2word = corpora.Dictionary(word_list)
-    print(id2word)
 
     # Create Corpus
     texts = word_list
@@ -38,6 +39,7 @@ def preparing_data_for_LDA(word_list):
 
 
 def model_training(corpus, id2word):
+
     # number of topics
     num_topics = 10
 
@@ -49,14 +51,22 @@ def model_training(corpus, id2word):
     pprint(lda_model.print_topics())
     doc_lda = lda_model[corpus]
 
+    return lda_model
+
+def model_analysis(corpus, id2word, lda_model):
+    return 0
+
+
 
 if __name__ == '__main__':
 
-    for trend in trends[25:26]:
+    for trend in trends[25:27]:
         data = clean_tweets(trend)
         # print(convert_dict_to_list(data))
         list_data = convert_dict_to_list(data)
         corpus_data, id2word_data = preparing_data_for_LDA(list_data)
-        model_training(corpus_data, id2word_data)
+        lda_model_data = model_training(corpus_data, id2word_data)
+        model_analysis(corpus_data, id2word_data, lda_model_data)
+        print(lda_model_data)
 
 print("You are doing great! :)")
