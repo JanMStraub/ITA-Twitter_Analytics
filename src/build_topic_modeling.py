@@ -11,6 +11,12 @@ trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
 
 
 def convert_dict_to_list(data):
+    """
+    IN:
+    data (dict): preprocessed data dict for that trend, structure: {"word": <word count>, ...}
+    OUT:
+    word_list (list): list of list containing all words of one tweet
+    """
 
     word_list = []
     for key in data:
@@ -25,6 +31,13 @@ def convert_dict_to_list(data):
 
 
 def preparing_data_for_LDA(word_list):
+    """
+    IN:
+    word_list (list): list of list containing all words of one tweet
+    OUT:
+    corpus (corpus): gensim corpus with the term document frequency
+    id2word (dict): gensim corpora with the word_list
+    """
 
     # Create Dictionary
     id2word = corpora.Dictionary(word_list)
@@ -39,9 +52,16 @@ def preparing_data_for_LDA(word_list):
 
 
 def model_training(corpus, id2word):
+    """
+    IN:
+    corpus (corpus): gensim corpus with the term document frequency
+    id2word (dict): gensim corpora with the word_list
+    OUT:
+    lda_model (model): gensim lda_model
+    """
 
     # number of topics
-    num_topics = 10
+    num_topics = 1
 
     # Build LDA model
     lda_model = models.LdaMulticore(corpus=corpus,
@@ -67,6 +87,5 @@ if __name__ == '__main__':
         corpus_data, id2word_data = preparing_data_for_LDA(list_data)
         lda_model_data = model_training(corpus_data, id2word_data)
         model_analysis(corpus_data, id2word_data, lda_model_data)
-        print(lda_model_data)
 
-print("You are doing great! :)")
+    print("You are doing great! :)")
