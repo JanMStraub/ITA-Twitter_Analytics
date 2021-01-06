@@ -50,7 +50,7 @@ def connect_to_endpoint(url, headers):
     response.json() (json): json response from API with tweets
     """
     response = requests.request("GET", url, headers=headers)
-    print("status code: " + response.status_code)
+    print("status code: " + str(response.status_code))
     if response.status_code != 200:
         raise Exception(
             "Request returned an error @ {}: {} {}".format(
@@ -113,6 +113,7 @@ def get_tweets(total_amount, query):
             next_token = dict_response["meta"]["next_token"]
         except KeyError:
             print("not enough tweets for query: " + query)
+            break
         data += dict_response["data"]
         
         total_amount -= scrape_amount
@@ -152,5 +153,5 @@ def save_tweets_to_storage(trend_amount, total_amount):
 
 
 if __name__ == "__main__":
-    save_tweets_to_storage(5, 10)  # leave at (5, 10) for testing
+    save_tweets_to_storage(5, 5000)  # leave at (5, 10) for testing
     print("You are doing great :)")  # motivational message
