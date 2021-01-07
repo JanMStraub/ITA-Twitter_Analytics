@@ -79,7 +79,7 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words):
     path = current_dir + '/../storage/results/' + name + '_lda.png'
 
     if not os.path.exists(path):
-        print("processing: " + name)
+        print("building wordcloud: " + name)
 
         wordcloud = WordCloud(
             background_color=None, mode='RGBA', max_words=10, random_state=42, width=1000, height=1000,

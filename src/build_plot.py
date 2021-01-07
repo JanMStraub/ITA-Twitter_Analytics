@@ -9,13 +9,14 @@ def create_plot(trend_name, topic_words):
     path = current_dir + '/../storage/results/' + name + '_plot.png'
 
     if not os.path.exists(path):
-        print("processing: " + name)
-        print(topic_words)
-
+        print("building plot: " + name)
+        
+        plt.figure()
         plt.bar(range(len(topic_words)), list(
             topic_words.values()), align='center')
         plt.xticks(range(len(topic_words)), list(topic_words.keys()))
-        plt.savefig(path, transparent=True)
+        plt.savefig(path, transparent=True, color="white")
+        plt.clf()
 
         print("Image successfully writen to storage/results/" + name)
 

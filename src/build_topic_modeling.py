@@ -79,7 +79,7 @@ def model_visualization(trend, corpus, lda_model):
 
 if __name__ == '__main__':
 
-    for trend in trends[25:27]: # select TEST.json for testing
+    for trend in trends[25:28]: # select TEST.json for testing
         data = clean_tweets(trend)
         list_data = convert_dict_to_list(data)
         corpus_data, id2word_data = preparing_data_for_LDA(list_data)
