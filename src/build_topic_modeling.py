@@ -43,14 +43,9 @@ def preparing_data_for_LDA(word_list):
     id2word (dict): gensim corpora with the word_list
     """
 
-    # Create Dictionary
-    id2word = corpora.Dictionary(word_list)
-
-    # Create Corpus
-    texts = word_list
-
-    # Term Document Frequency
-    corpus = [id2word.doc2bow(text) for text in texts]
+    id2word = corpora.Dictionary(word_list)  # Create Dictionary
+    texts = word_list  # Create Corpus
+    corpus = [id2word.doc2bow(text) for text in texts]  # Term Document Frequency
 
     return corpus, id2word
 
@@ -63,14 +58,9 @@ def model_training(corpus, id2word):
     OUT:
     lda_model (model): gensim lda_model
     """
-
-    # number of topics
-    num_topics = 1
-
+    
     # Build LDA model
-    lda_model = models.LdaMulticore(corpus=corpus,
-                                           id2word=id2word,
-                                           num_topics=num_topics)
+    lda_model = models.LdaMulticore(corpus=corpus, id2word=id2word, num_topics=1)
 
     return lda_model
 
@@ -81,8 +71,8 @@ def model_visualization(trend, corpus, lda_model):
     topics = lda_model.show_topics(formatted=False)
     topic_words = dict(topics[0][1])
 
-    create_plot(trend, topic_words)
     create_and_save_wordcloud_to_storage_lda(trend, topic_words)
+    create_plot(trend, topic_words)
     
 
 

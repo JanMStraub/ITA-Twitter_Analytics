@@ -10,11 +10,12 @@ def create_plot(trend_name, topic_words):
 
     if not os.path.exists(path):
         print("processing: " + name)
+        print(topic_words)
 
         plt.bar(range(len(topic_words)), list(
             topic_words.values()), align='center')
         plt.xticks(range(len(topic_words)), list(topic_words.keys()))
-        plt.savefig(path)
+        plt.savefig(path, transparent=True)
 
         print("Image successfully writen to storage/results/" + name)
 
