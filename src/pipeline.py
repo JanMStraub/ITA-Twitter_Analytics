@@ -80,7 +80,7 @@ def remove_numbers_and_links(tweets):
         tweets[index] = re.sub(r'[\d]', '', tweets[index])
         tweets[index] = re.sub(
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
-
+            
     return tweets
 
 

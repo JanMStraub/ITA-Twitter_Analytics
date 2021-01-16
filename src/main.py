@@ -45,6 +45,7 @@ def main():
         # TODO: should return list of trends for API
 
 
+
 if __name__ == "__main__":
 
     main()

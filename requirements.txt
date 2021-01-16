@@ -7,3 +7,4 @@ matplotlib
 flask
 flask-cors
 gunicorn
+gensim

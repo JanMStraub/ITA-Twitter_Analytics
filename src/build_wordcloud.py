@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from pipeline import clean_tweets
 
+
 # get all trend filenames from storage
 current_dir = os.path.dirname(os.path.abspath(__file__))
 trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
 
-# currently not in use
+
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
 def similar_color_func(word=None, font_size=None,
                        position=None, orientation=None,
@@ -18,6 +19,7 @@ def similar_color_func(word=None, font_size=None,
     s = 100  # 0 - 100
     l = random_state.randint(30, 70)  # 0 - 100
     return "hsl({}, {}%, {}%)".format(h, s, l)
+
 
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
 def multi_color_func(word=None, font_size=None,
@@ -29,6 +31,7 @@ def multi_color_func(word=None, font_size=None,
               [158, 48, 79]]
     rand = random_state.randint(0, len(colors) - 1)
     return "hsl({}, {}%, {}%)".format(colors[rand][0], colors[rand][1], colors[rand][2])
+
 
 def make_circle():
     """
@@ -42,6 +45,7 @@ def make_circle():
     mask = (x - 350) ** 2 + (y - 350) ** 2 > 350 ** 2
     mask = 255 * mask.astype(int)
     return mask
+
 
 def create_and_save_wordcloud_to_storage(trend_name, data):
     """
@@ -60,7 +64,7 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
 
         wordcloud = WordCloud(
             background_color=None, mode='RGBA', max_words=2000, random_state=42, width=1000, height=1000,
-            color_func=multi_color_func, mask=make_circle()).generate_from_frequencies(data)
+            color_func=multi_color_func, mask=make_circle(), min_word_length=2).generate_from_frequencies(data)
         plt.imshow(wordcloud, interpolation="bilinear")
         wordcloud.to_file(path)
 
@@ -68,6 +72,26 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
 
     else:
         print("skipping " + name + " -> already in storage")
+
+
+def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words):
+    name = str(trend_name).removesuffix('.json')
+    path = current_dir + '/../storage/results/' + name + '_lda.png'
+
+    if not os.path.exists(path):
+        print("building wordcloud: " + name)
+
+        wordcloud = WordCloud(
+            background_color=None, mode='RGBA', max_words=10, random_state=42, width=1000, height=1000,
+            color_func=similar_color_func, scale=5).generate_from_frequencies(topic_words)
+        plt.imshow(wordcloud, interpolation="bilinear")
+        wordcloud.to_file(path)
+
+        print("Image successfully writen to storage/results/" + name)
+
+    else:
+        print("skipping " + name + " -> already in storage")
+
 
 if __name__ == "__main__":
 
