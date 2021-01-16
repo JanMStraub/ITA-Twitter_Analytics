@@ -152,6 +152,36 @@ def save_tweets_to_storage(trend_amount, total_amount):
             print("skipping " + trend["name"] + " -> already in storage")
 
 
+def save_trend_to_storage(trend, total_amount):
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    filename = trend + '.json'
+    path = current_dir + '/../storage/jsons/' + filename
+
+    #getting the trend dict for trend["query"]
+    with open(current_dir + '/../storage/trends.json') as trends:
+        print("PENIS", trend)
+        for t in json.load(trends):
+            print(t)
+            if t["name"] == trend:
+                trend = t
+                print("HILFE")
+                break
+
+    if not os.path.exists(path):
+        print("processing: " + trend["name"])
+        
+        data = get_tweets(total_amount, trend["query"])
+        json_data = json.dumps(data, indent=4, sort_keys=True)
+
+        with open(path, 'w') as output:
+                output.write(json_data)
+                print("Data successfully writen to storage/jsons" + filename)
+    else:
+        print("skipping " + trend["name"] + " -> already in storage")
+
+
 if __name__ == "__main__":
     save_tweets_to_storage(5, 5000)  # leave at (5, 10) for testing
     print("You are doing great :)")  # motivational message

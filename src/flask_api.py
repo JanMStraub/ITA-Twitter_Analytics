@@ -1,19 +1,31 @@
 from flask import Flask, request, send_from_directory
-from main import main
 from flask_cors import CORS
 import json
+import os
+from main import analyze_trend
+from get_tweets import get_trends
 
 app = Flask(__name__,
             static_url_path='', 
             static_folder='../storage/results')
 CORS(app)
 
-@app.route('/init_analysis')
-def init_analysis():
-    trends = ["trend1", "trend2", "trend3"]
-    # call main
-    return json.dumps(trends)
 
+@app.route('/analyze_trend')
+def analyze_trend_api():
+    trend = request.args.get('trend')
+    analyze_trend(trend)
+
+    return "<h2>Trend Analyzed!</h2>"
+
+
+@app.route('/trend_list')
+def trend_list():
+    trends = get_trends()
+    with open(os.path.dirname(os.path.abspath(__file__)) + '/../storage/trends.json', 'w') as file:
+        json.dump(trends, file)
+    
+    return json.dumps([item["name"] for item in trends])
 
 
 @app.route('/<path:path>')

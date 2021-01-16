@@ -2,9 +2,12 @@ import os
 import nltk
 from pipeline import clean_tweets
 from pipeline import get_links_from_tweet
-from get_tweets import save_tweets_to_storage
+from get_tweets import save_tweets_to_storage # REMOVE ?
+from get_tweets import save_trend_to_storage
 from build_wordcloud import create_and_save_wordcloud_to_storage
 from build_topic_modeling import perform_LDA
+
+TOTAL_AMOUNT = 5000
 
 
 def setup():
@@ -15,6 +18,18 @@ def setup():
     nltk.download('stopwords')
 
 
+def analyze_trend(trend):
+
+    save_trend_to_storage(trend, TOTAL_AMOUNT)
+
+    data = clean_tweets(trend + '.json')
+    links = get_links_from_tweet(trend + '.json')
+
+    create_and_save_wordcloud_to_storage(trend, data)
+    perform_LDA(trend, data)
+
+
+#main is obsolete?
 def main():
     """
     OUT:
