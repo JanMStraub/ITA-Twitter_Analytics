@@ -161,12 +161,9 @@ def save_trend_to_storage(trend, total_amount):
 
     #getting the trend dict for trend["query"]
     with open(current_dir + '/../storage/trends.json') as trends:
-        print("PENIS", trend)
         for t in json.load(trends):
-            print(t)
             if t["name"] == trend:
                 trend = t
-                print("HILFE")
                 break
 
     if not os.path.exists(path):

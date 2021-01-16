@@ -2,6 +2,7 @@
 storage/jsons/*
 storage/results/*
 storage/wordclouds/*
+storage/trends.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
