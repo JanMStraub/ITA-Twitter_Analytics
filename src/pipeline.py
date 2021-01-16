@@ -80,7 +80,7 @@ def remove_numbers_and_links(tweets):
         tweets[index] = re.sub(r'[\d]', '', tweets[index])
         tweets[index] = re.sub(
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
-            
+
     return tweets
 
 
@@ -93,6 +93,7 @@ def clean_tweets(trend_from_storage):
     """
 
     # load nltk stopwords
+    # TODO: obsolete ?
     nltk.download('stopwords')
     # load NLP for tokenisation/lemmatization
     nlp = spacy.load('de_core_news_sm')

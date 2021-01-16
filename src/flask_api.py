@@ -21,4 +21,4 @@ def send_static(path):
     return send_from_directory('../storage/results', path)
 
 if __name__ == "__main__":
-    send_png()
+    ...

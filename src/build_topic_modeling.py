@@ -75,7 +75,11 @@ def model_visualization(trend, corpus, lda_model):
     create_plot(trend, topic_words)
     
 
-
+def perform_LDA(trend, data):
+    list_data = convert_dict_to_list(data)
+    corpus_data, id2word_data = preparing_data_for_LDA(list_data)
+    lda_model_data = model_training(corpus_data, id2word_data)
+    model_visualization(trend, corpus_data, lda_model_data)
 
 if __name__ == '__main__':
 
