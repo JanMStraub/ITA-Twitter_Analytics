@@ -1,0 +1,10 @@
+ul {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .7em;
+    font-size: larger;
+}
+
+.TrendList {
+    padding: 0em 5em;
+}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TrendList from './TrendList';
+import TrendStats from './TrendStats';
 import axios from "axios";
 import './results.css'
 
@@ -16,7 +18,7 @@ class Results extends Component {
     }
 
     async getTrends() {
-        axios.get("http://localhost:5000/init_analysis")
+        axios.get("http://localhost:5000/trend_list")
         .then(response => {
             this.setState({ trends : response.data });
         })
@@ -29,7 +31,9 @@ class Results extends Component {
         return (
             <div className="results">
             <h2>Current Trends</h2>
-            <p>{this.state.trends}</p>
+            <TrendList trends={this.state.trends}/>
+            <TrendStats trend={"%23DSDS"}/>
+            
         </div>
         )
     }
