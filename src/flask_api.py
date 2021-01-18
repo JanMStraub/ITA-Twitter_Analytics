@@ -2,6 +2,7 @@ from flask import Flask, request, send_from_directory
 from flask_cors import CORS
 import json
 import os
+import requests
 from main import analyze_trend
 from get_tweets import get_trends
 
@@ -14,9 +15,9 @@ CORS(app)
 @app.route('/analyze_trend')
 def analyze_trend_api():
     trend = request.args.get('trend')
-    analyze_trend(trend)
+    data = analyze_trend(trend)
 
-    return "<h2>Trend Analyzed!</h2>"
+    return json.dumps(data)
 
 
 @app.route('/trend_list')
@@ -31,6 +32,7 @@ def trend_list():
 @app.route('/<path:path>')
 def send_static(path):
     return send_from_directory('../storage/results', path)
+
 
 if __name__ == "__main__":
     ...

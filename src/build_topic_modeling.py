@@ -73,13 +73,16 @@ def model_visualization(trend, corpus, lda_model):
 
     create_and_save_wordcloud_to_storage_lda(trend, topic_words)
     create_plot(trend, topic_words)
+
+    return topic_words
     
 
 def perform_LDA(trend, data):
     list_data = convert_dict_to_list(data)
     corpus_data, id2word_data = preparing_data_for_LDA(list_data)
     lda_model_data = model_training(corpus_data, id2word_data)
-    model_visualization(trend, corpus_data, lda_model_data)
+    topic_words = model_visualization(trend, corpus_data, lda_model_data)
+    return topic_words
 
 if __name__ == '__main__':
 

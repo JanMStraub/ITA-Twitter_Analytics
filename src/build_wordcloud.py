@@ -57,7 +57,7 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
     """
 
     name = str(trend_name).removesuffix('.json')
-    path = current_dir + '/../storage/wordclouds/' + name + '.png'
+    path = current_dir + '/../storage/results/' + name + '_wordcloud.png'
 
     if not os.path.exists(path):
         print("processing: " + name)
@@ -68,7 +68,7 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
         plt.imshow(wordcloud, interpolation="bilinear")
         wordcloud.to_file(path)
 
-        print("Image successfully writen to storage/wordclouds/" + name)
+        print("Image successfully writen to storage/results/" + name)
 
     else:
         print("skipping " + name + " -> already in storage")
