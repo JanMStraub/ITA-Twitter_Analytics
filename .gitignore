@@ -1,8 +1,5 @@
 # Storage // add storage-folder to this file for deployment
-storage/jsons/*
-storage/results/*
-storage/wordclouds/*
-storage/trends.json
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
