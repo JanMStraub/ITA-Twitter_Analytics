@@ -161,10 +161,13 @@ def save_trend_to_storage(trend, total_amount):
 
     #getting the trend dict for trend["query"]
     with open(current_dir + '/../storage/trends.json') as trends:
-        for t in json.load(trends):
-            if t["name"] == trend:
-                trend = t
+        for trend_dict in json.load(trends):
+            if trend_dict["name"] == trend:
+                trend = trend_dict
                 break
+    
+    if isinstance(trend, str):
+        raise RuntimeError('Trend not found in trends.json: ' + trend)
 
     if not os.path.exists(path):
         print("processing: " + trend["name"])
