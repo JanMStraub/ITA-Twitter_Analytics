@@ -32,7 +32,6 @@ class Results extends Component {
             <div className="results">
                 <TrendList selectTrend={this.selectTrend}/>
                 {this.state.showStats && <TrendStats trend={this.state.activeTrend}/>}
-            
             </div>
         )
     }

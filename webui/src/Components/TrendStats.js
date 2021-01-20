@@ -131,7 +131,7 @@ class TrendStats extends Component {
                     </div>
                 </div>
         } else {
-            content = <img src={loading} alt="" height="40" width="40" />
+            content = <div className="loading"><img src={loading} alt="" height="40" width="40" /></div>
         }
 
         return (

@@ -2,6 +2,10 @@
     margin: 0 7em;
 }
 
+.loading {
+    text-align: center;
+}
+
 .tweet_count {
     margin: .5em .2em;
     font-family: "BebasNeue";
