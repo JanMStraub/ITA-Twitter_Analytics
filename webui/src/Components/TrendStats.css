@@ -1,0 +1,96 @@
+.TrendStats {
+    margin: 0 7em;
+}
+
+.tweet_count {
+    margin: .5em .2em;
+    font-family: "BebasNeue";
+    color: #A9A9A9;
+    font-size: larger;
+}
+
+h3 {
+    font-size: 2.5em;
+    color: #A9A9A9;
+}
+
+h6 {
+    font-size: 3em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    border-bottom: rgb(0, 153, 255) 2px solid;
+    color: rgb(0, 153, 255);
+}
+
+.first_row {
+    display: flex;
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.topic_words_wrapper {
+    width: 50%;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-style: hidden;
+    font-size: xx-large;
+}
+
+table th {
+    border: 1px white solid;
+    margin: 0.5em;
+    margin-bottom: .25em;
+}
+
+table td {
+    border-left: 1px white solid;
+    padding: 0.5em;
+    padding-bottom: 0;
+    font-size: x-large;
+    text-align: left;
+}
+
+td p {
+    display: inline;
+    font-size: medium;
+    font-family: "BebasNeue";
+    color: #A9A9A9;
+}
+
+table tr:first-child td {
+    padding-right: 1em;
+}
+
+table tr:first-child th {
+    margin-right: 1em;
+}
+
+.wordcloud_wrapper {
+    width: 50%;
+}
+
+.wordcloud {
+    height: 375px;
+    width: 525px;
+}
+
+.second_row {
+    display: flex;
+    text-align: center;
+}
+
+.sentiment_wrapper {
+    width: 50%;
+}
+
+.categories_links_wrapper {
+    width: 50%;
+}
+
+.plot {
+    height: 200px;
+    width: 600px;
+}

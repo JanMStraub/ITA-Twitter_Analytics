@@ -1,4 +1,4 @@
-ul {
+.TrendList ul {
     display: flex;
     justify-content: space-between;
     padding-bottom: .7em;
@@ -6,5 +6,14 @@ ul {
 }
 
 .TrendList {
-    padding: 0em 5em;
+    margin: 0em 7em;
+}
+
+.list_div {
+    margin: 2em 8em;
+}
+
+.TrendList ul li:hover {
+    color: #A9A9A9;
+    cursor: pointer;
 }

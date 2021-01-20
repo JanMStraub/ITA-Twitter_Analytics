@@ -8,33 +8,32 @@ class Results extends Component {
     constructor() {
         super()
         this.state = {
-            trends: []
+            activeTrend: "",
+            showStats: false
         };
-        this.getTrends = this.getTrends.bind(this);
+
+        this.selectTrend = this.selectTrend.bind(this);
     }
 
-    componentDidMount() {
-        this.getTrends()
+    selectTrend = (trend) => {
+        this.setState({activeTrend : trend})
+        this.setState({showStats : true})
     }
 
-    async getTrends() {
-        axios.get("http://localhost:5000/trend_list")
-        .then(response => {
-            this.setState({ trends : response.data });
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-    }
-    
+
+    //TODO: convert trend to %-notiation for https://de.wikipedia.org/wiki/URL-Encoding
+    //convert direct in axios call 
+
     render() {
+
+        console.log(this.state.activeTrend)
+
         return (
             <div className="results">
-            <h2>Current Trends</h2>
-            <TrendList trends={this.state.trends}/>
-            <TrendStats trend={"%23DSDS"}/>
+                <TrendList selectTrend={this.selectTrend}/>
+                {this.state.showStats && <TrendStats trend={this.state.activeTrend}/>}
             
-        </div>
+            </div>
         )
     }
 }

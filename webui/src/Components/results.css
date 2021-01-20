@@ -1,9 +1,9 @@
 .results {
     padding: 1em;
     background-image: url('../images/background2.png');
-    height: 1200px;
     background-size: cover;
     background-position-y: -240px;
+    padding-bottom: 5em;
 }
 
 h2 {
