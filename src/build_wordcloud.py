@@ -8,7 +8,6 @@ from pipeline import clean_tweets
 
 # get all trend filenames from storage
 current_dir = os.path.dirname(os.path.abspath(__file__))
-trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
 
 
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
@@ -95,8 +94,6 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words):
 
 if __name__ == "__main__":
 
-    for trend in trends[25:27]:
-        data = clean_tweets(trend)
-        create_and_save_wordcloud_to_storage(trend, data)
+    ...
         
     print("\nYou are doing great! :)")  # Motivational Message
