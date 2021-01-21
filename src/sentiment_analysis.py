@@ -43,10 +43,6 @@ for index, trend in enumerate(trends):
         elif pos == neg:
             neutral_tweets += 1
 
-    #print(neutral_tweets)
-    #print(positive_tweets)
-    #print(negative_tweets)
-
     # creating and saving Pie Chart
     percentage_positive = positive_tweets/200
     percentage_neutral = neutral_tweets/200
@@ -57,7 +53,15 @@ for index, trend in enumerate(trends):
     sizes = [percentage_positive, percentage_neutral, percentage_negative]
 
     fig, ax = plt.subplots()
-    wedges, text, autotext =  ax.pie(sizes, colors=colors, autopct='%1.1f%%', textprops=dict(color='white'), pctdistance = 0.8, startangle=120)
+    wedges, text, autotext =  ax.pie(sizes,
+          colors=colors,
+          autopct='%1.1f%%',
+          textprops=dict(color='white'),
+          wedgeprops = dict(width = 0.7,
+          edgecolor = 'lightgray'),
+          pctdistance = 0.8,
+          startangle=120)
+
     plt.setp(wedges, width = 0.40)
     fig.set_facecolor('darkblue')
     ax.axis('equal')
@@ -70,6 +74,8 @@ for index, trend in enumerate(trends):
           facecolor = 'dimgray',
           edgecolor = 'darkgray',
           framealpha = 0.5)
+
+    # change color of legend text      
     for text in legend.get_texts():
         text.set_color('gainsboro')
 
