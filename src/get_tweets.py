@@ -121,37 +121,6 @@ def get_tweets(total_amount, query):
     return data
 
 
-def save_tweets_to_storage(trend_amount, total_amount):
-    """
-    IN:
-    trend_amount (int): amount of top trends to fetch (50 at max)
-    total_amount (int): amount of tweets to fetch per trend
-    OUT:
-    None (json created in storage/jsons)
-    """
-    if trend_amount > 50:
-        raise Exception("trends_amount can only be 50 at maximum")
-    
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    trends = get_trends()[:trend_amount]
-
-    for trend in trends:
-        filename = trend["name"] + '.json'
-        path = current_dir + '/../storage/jsons/' + filename
-
-        if not os.path.exists(path):
-            print("processing: " + trend["name"])
-        
-            data = get_tweets(total_amount, trend["query"])
-            json_data = json.dumps(data, indent=4, sort_keys=True)
-
-            with open(path, 'w') as output:
-                output.write(json_data)
-                print("Data successfully writen to storage/jsons" + filename)
-        else:
-            print("skipping " + trend["name"] + " -> already in storage")
-
-
 def save_trend_to_storage(trend, total_amount):
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -183,5 +152,4 @@ def save_trend_to_storage(trend, total_amount):
 
 
 if __name__ == "__main__":
-    save_tweets_to_storage(5, 5000)  # leave at (5, 10) for testing
     print("You are doing great :)")  # motivational message
