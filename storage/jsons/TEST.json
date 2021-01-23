@@ -33,12 +33,18 @@
         "created_at": "0000-00-00T00:00:00.000Z",
         "id": "6",
         "lang": "de",
-        "text": "_ _ _ _ _ _"
+        "text": "New York"
     },
     {
         "created_at": "0000-00-00T00:00:00.000Z",
         "id": "7",
         "lang": "de",
-        "text": "__ __ _____"
+        "text": "__ __ ___ _ _"
+    }, 
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "8",
+        "lang": "de",
+        "text": "Max Mustermann"
     }
 ]

@@ -102,14 +102,14 @@ def clean_tweets(trend_from_storage):
 
     tweets = read_from_storage(trend_from_storage)
 
-    # Remove all numbers and links
+    # Remove all numbers, links and underscores
     tweets = remove_numbers_and_links(tweets)
 
     german_stop_words = stopwords.words('german')
     additional_stopwords = ["rt", "lt"]
     german_stop_words.extend(additional_stopwords)
 
-    vectorizer = CountVectorizer(analyzer="word", lowercase=True, stop_words=german_stop_words)
+    vectorizer = CountVectorizer(analyzer="word", lowercase=True, ngram_range=(1, 2), stop_words=german_stop_words)
     X = vectorizer.fit_transform(tweets).toarray()
 
     lemmatized_dict = {}
@@ -129,5 +129,5 @@ if __name__ == "__main__":
 
     # print(get_links_from_tweet("TEST.json"))
     print(clean_tweets("TEST.json"))
-    print(clean_tweets("#AdoreYouDay.json"))
+    # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message
