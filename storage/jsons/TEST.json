@@ -1,0 +1,44 @@
+[
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "1",
+        "lang": "de",
+        "text": "Dies ist ein Test! 666."
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "2",
+        "lang": "de",
+        "text": "Dies ist ein Test! 666."
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "3",
+        "lang": "de",
+        "text": "Dies sind Tests! 666."
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "4",
+        "lang": "de",
+        "text": "Sind dies Tests? 106€"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "5",
+        "lang": "de",
+        "text": "https://github.com/JanMStraub/ITA-Twitter_Analytics/issues/2"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "6",
+        "lang": "de",
+        "text": "_ _ _ _ _ _"
+    },
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "7",
+        "lang": "de",
+        "text": "__ __ _____"
+    }
+]

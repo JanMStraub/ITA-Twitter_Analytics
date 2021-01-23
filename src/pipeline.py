@@ -80,6 +80,7 @@ def remove_numbers_and_links(tweets):
         tweets[index] = re.sub(r'[\d]', '', tweets[index])
         tweets[index] = re.sub(
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
+        tweets[index] = tweets[index].replace("_", "")
 
     return tweets
 
@@ -93,7 +94,7 @@ def clean_tweets(trend_from_storage):
     """
 
     # load nltk stopwords
-    # TODO: obsolete ?
+    # TODO: move to main ?
     nltk.download('stopwords')
     # load NLP for tokenisation/lemmatization
     nlp = spacy.load('de_core_news_sm')
@@ -105,6 +106,9 @@ def clean_tweets(trend_from_storage):
     tweets = remove_numbers_and_links(tweets)
 
     german_stop_words = stopwords.words('german')
+    additional_stopwords = ["rt", "lt"]
+    german_stop_words.extend(additional_stopwords)
+
     vectorizer = CountVectorizer(analyzer="word", lowercase=True, stop_words=german_stop_words)
     X = vectorizer.fit_transform(tweets).toarray()
 
@@ -123,6 +127,7 @@ def clean_tweets(trend_from_storage):
 
 if __name__ == "__main__":
 
-    print(get_links_from_tweet("TEST.json"))
+    # print(get_links_from_tweet("TEST.json"))
     print(clean_tweets("TEST.json"))
+    print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message
