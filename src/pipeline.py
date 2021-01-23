@@ -109,7 +109,7 @@ def clean_tweets(trend_from_storage):
     additional_stopwords = ["rt", "lt"]
     german_stop_words.extend(additional_stopwords)
 
-    vectorizer = CountVectorizer(analyzer="word", lowercase=True, ngram_range=(1, 2), stop_words=german_stop_words)
+    vectorizer = CountVectorizer(analyzer="word", lowercase=True, ngram_range=(2, 2), stop_words=german_stop_words)
     X = vectorizer.fit_transform(tweets).toarray()
 
     lemmatized_dict = {}
