@@ -41,4 +41,6 @@ def analyze_trend(trend):
 
 if __name__ == "__main__":
 
+    analyze_trend("#dopa")
+
     print("You are doing great! :)")
