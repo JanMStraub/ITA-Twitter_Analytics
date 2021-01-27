@@ -3,8 +3,10 @@ import os
 import nltk
 import re
 import spacy
+
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
+from gensim.models.phrases import Phrases, Phraser
 
 
 def read_from_storage(filename):
@@ -63,7 +65,8 @@ def get_links_from_tweet(trend_from_storage):
     link_string = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
     for tweet in tweets:
         if re.search(link_string, tweet):
-            extracted_links.append(re.findall(link_string, tweet))
+            for link in re.findall(link_string, tweet):
+                extracted_links.append(re.findall(link_string, link))
     
     return count_links(extracted_links)
 
@@ -83,6 +86,17 @@ def remove_numbers_and_links(tweets):
         tweets[index] = tweets[index].replace("_", "")
 
     return tweets
+
+
+def build_bigrams(tweets):
+    print(tweets)
+    sentence_stream = [doc.split(" ") for doc in tweets]
+    print(sentence_stream)
+    phrases = Phrases(sentence_stream, threshold=2)
+    bigram = Phraser(phrases)
+    for sent in sentence_stream:
+        print(bigram[sent])
+
 
 
 def clean_tweets(trend_from_storage):
@@ -109,8 +123,10 @@ def clean_tweets(trend_from_storage):
     additional_stopwords = ["rt", "lt"]
     german_stop_words.extend(additional_stopwords)
 
-    vectorizer = CountVectorizer(analyzer="word", lowercase=True, ngram_range=(2, 2), stop_words=german_stop_words)
+    vectorizer = CountVectorizer(analyzer="word", lowercase=True, stop_words=german_stop_words)
     X = vectorizer.fit_transform(tweets).toarray()
+
+    tweets = build_bigrams(tweets)
 
     lemmatized_dict = {}
     sorted_list = dict(vectorizer.vocabulary_.items())
@@ -127,7 +143,7 @@ def clean_tweets(trend_from_storage):
 
 if __name__ == "__main__":
 
-    # print(get_links_from_tweet("TEST.json"))
-    print(clean_tweets("TEST.json"))
+    print(get_links_from_tweet("TEST.json"))
+    # print(clean_tweets("TEST.json"))
     # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message

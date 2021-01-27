@@ -46,5 +46,11 @@
         "id": "8",
         "lang": "de",
         "text": "Max Mustermann"
+    }, 
+    {
+        "created_at": "0000-00-00T00:00:00.000Z",
+        "id": "8",
+        "lang": "de",
+        "text": "https://t.co/qSwdW2PMVn https://t.co/ryfcgolChE"
     }
 ]
