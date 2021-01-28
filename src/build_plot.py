@@ -1,10 +1,17 @@
 import os
-import numpy as np
 import matplotlib.pyplot as plt
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
 
-def create_plot(trend_name, topic_words):
+def create_plot(trend_name, topic_words, current_dir):
+    """
+    IN:
+    trend_name (string): one trend in the form "<trend>"
+    topic_words (dict): dict with counted topic words
+    current_dir (string): path to storage
+    OUT:
+    None (png created in storage/results)
+    """
+
     name = str(trend_name).removesuffix('.json')
     path = current_dir + '/../storage/results/' + name + '_plot.png'
 
