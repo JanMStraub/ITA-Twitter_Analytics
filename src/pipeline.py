@@ -126,7 +126,7 @@ def clean_tweets(trend_from_storage):
     vectorizer = CountVectorizer(analyzer="word", lowercase=True, stop_words=german_stop_words)
     X = vectorizer.fit_transform(tweets).toarray()
 
-    tweets = build_bigrams(tweets)
+    # tweets = build_bigrams(tweets)
 
     lemmatized_dict = {}
     sorted_list = dict(vectorizer.vocabulary_.items())
