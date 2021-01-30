@@ -9,3 +9,4 @@ flask-cors
 gunicorn
 gensim
 https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-2.3.0/de_core_news_sm-2.3.0.tar.gz
+textblob
