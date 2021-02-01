@@ -125,6 +125,7 @@ def clean_tweets(trend_from_storage):
     """
 
     lemmatized_dict = {}
+    tweet_list = []
 
     for tweet in tweets:
         # lower case and remove non-alphabetic characters
@@ -138,26 +139,23 @@ def clean_tweets(trend_from_storage):
         tweet = [word for word in tweet if (len(word) != 0)]
         # removing empty list
         if len(tweet) > 0:
+            tweet_list.append(tweet)
+            for word in tweet:
+                if word not in lemmatized_dict:
+                    lemmatized_dict[word] = 1
+                else:
+                    lemmatized_dict[word] += 1
             
-            tweet_stream = [tweet]
-            print(tweet)
-            # define the phraser for bi-gram creation#
-            phrases = Phrases(tweet_stream, threshold=2)
-            bigram = Phraser(phrases)
-            new_lines = bigram[tweet]
-            print(new_lines)
+    
+    # define the phraser for bi-gram creation#
+    phrases = Phrases(tweet_list, threshold=2)
+    bigram = Phraser(phrases)
+
+    new_lines = bigram[tweet_list[5]]
+    #print(new_lines)
 
 
     """
-
-    sent = [] # list of all words
-    sent = quotes
-
-    # for quote in quotes:
-    #     for word in quote:
-    #         sent.append(word)
-
-
     phrases = Phrases(sent, min_count=10, threshold=2) #define the phraser for bi-gram creation#
     bigram = Phraser(phrases)
 
