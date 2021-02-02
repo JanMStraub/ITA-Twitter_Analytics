@@ -108,28 +108,16 @@ def clean_tweets(trend_from_storage):
     tweets = remove_numbers_and_links(tweets)
 
     german_stop_words = stopwords.words('german')
-    additional_stopwords = ["rt", "lt"]
-    german_stop_words.extend(additional_stopwords)
-
-    """
-    for tweet in tweets:
-        re.sub  # lower case and remove non-alphabetic characters
-        nlp
-        stopwords remove
-        one char tokens
-        empty tokens...
-        cleaned_tweets.append()
-        bigrams
-
-        -> lemmatized dict
-    """
+    # additional_stopwords = ["rt", "lt"]
+    # german_stop_words.extend(additional_stopwords)
 
     lemmatized_dict = {}
     tweet_list = []
 
     for tweet in tweets:
+        
         # lower case and remove non-alphabetic characters
-        tweet = re.sub("[/']", '', re.sub("[^A-Za-z\d']+", ' ', str(tweet))).lower()
+        tweet = str(re.sub("[/']", '', re.sub("[^A-ZÄÖÜa-zäöüß\d']+", ' ', str(tweet))).lower())
         tweet = nlp.tokenizer(tweet)
         # removing the stopwords
         tweet = [str(word) for word in tweet if str(word) not in german_stop_words]
@@ -145,43 +133,16 @@ def clean_tweets(trend_from_storage):
                     lemmatized_dict[word] = 1
                 else:
                     lemmatized_dict[word] += 1
-            
     
+    # TODO: Bigrams
+    
+    # print(tweet_list)
     # define the phraser for bi-gram creation#
     phrases = Phrases(tweet_list, threshold=2)
     bigram = Phraser(phrases)
 
     new_lines = bigram[tweet_list[5]]
     #print(new_lines)
-
-
-    """
-    phrases = Phrases(sent, min_count=10, threshold=2) #define the phraser for bi-gram creation#
-    bigram = Phraser(phrases)
-
-    new_lines = bigram[sent] # transformed the lines
-
-    vectorizer = CountVectorizer(analyzer="word", lowercase=True, ngram_range=(1, 2), stop_words=german_stop_words)
-    X = vectorizer.fit_transform(tweets).toarray()
-
-    
-    sorted_list = dict(vectorizer.vocabulary_.items())
-
-    for string in list(sorted_list.keys()):
-        index = sorted_list[string]
-        token = []
-        token.append(nlp.tokenizer(string))
-        print(token)
-
-    
-    for string in list(sorted_list.keys()):
-        index = sorted_list[string]
-        for t in nlp.tokenizer(string):
-            if t.lemma_ not in lemmatized_dict:
-                lemmatized_dict[t.lemma_] = X[0:X.shape[0], index].sum()
-            else:
-                lemmatized_dict[t.lemma_] += X[0:X.shape[0], index].sum()
-    """
 
     return lemmatized_dict
 
