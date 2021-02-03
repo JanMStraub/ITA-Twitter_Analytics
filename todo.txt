@@ -7,3 +7,5 @@ Main: Topic Modelling
 3.: Webpage Ranking
 4.: optional: Topic Classification (Label die nehmen dem Trend stehen, i.e. "Politics")
 5.: optional: Sentiment analysis (How many tweets are pos./neg./neutr.)
+
+- Bigrams in Pipeline
