@@ -112,7 +112,8 @@ def clean_tweets(trend_from_storage):
     # Some Twitter abbreviations
     additional_stopwords = ["rt", "cn", "tw", "mt", "ht", "prt", "rthx", "tmb", "tl", "tt", "dm", "tldr", "em", 
                             "fwd", "hth", "irl", "jk", "til", "nsfw", "tmi", "fyi", "idk", "idc", "fb", "yt", "ff",
-                            "de", "gg", "re", "gt", "sc"]
+                            "de", "gg", "re", "gt", "sc", "str", "whs", "ne", "rbg", "kah", "gk", "ps", "bo", "jp",
+                            "je", "en", "ft", "ik", "lol", "mh", "pe", "oh", "btw", "jpg", "png", "to", "nr"]
     german_stop_words.extend(additional_stopwords)
 
     lemmatized_dict = {}
@@ -149,9 +150,7 @@ def clean_tweets(trend_from_storage):
 
 if __name__ == "__main__":
 
-    links = get_links_from_tweet("Kane.json")
-    for link in links:
-        print(link)
-    # print(clean_tweets("Sieg.json"))
+    # print(get_links_from_tweet("Kane.json"))
+    print(clean_tweets("Russell.json"))
     # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message
