@@ -10,7 +10,7 @@ class TrendStats extends Component {
         this.state = {
             // ldaURL: "",
             wordcloudURL: "",
-            plotURL: "",
+            sentimentURL: "",
             links: {},
             keywords: {},
             tweetCount: 0,
@@ -29,7 +29,7 @@ class TrendStats extends Component {
                 this.setState({ keywords: response.data.keywords });
                 // this.setState({ ldaURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_lda.png" });
                 this.setState({ wordcloudURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_wordcloud.png" });
-                this.setState({ plotURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_plot.png" });
+                this.setState({ sentimentURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_sentiment_pie_chart.png" });
                 this.setState({ tweetCount: response.data.tweet_count });
                 this.setState({ finishedLoading: true })
             })
@@ -111,11 +111,12 @@ class TrendStats extends Component {
                     <div className="second_row">
                         <div className="sentiment_wrapper">
                             <h3>Trend Sentiment</h3>
+                            <img className="sentiment" src={this.state.sentimentURL} alt="" />
                         </div>
                         <div className="categories_links_wrapper">
                             <div className="categories_wrapper">
                                 <h3>Categories</h3>
-                                <img className="plot" src={this.state.plotURL} alt="" />
+                                <p className="WIP">Work in Progress</p>
                             </div>
                             <div className="links_wrapper">
                                 <h3>Top Links</h3>

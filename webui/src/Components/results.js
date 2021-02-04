@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TrendList from './TrendList';
 import TrendStats from './TrendStats';
-import axios from "axios";
 import './results.css'
 
 class Results extends Component {
