@@ -67,7 +67,6 @@ def model_visualization(trend, lda_model, current_dir):
     OUT:
     topic_words (dict): dict with counted topic words 
     """
-    print(type(lda_model))
 
     topics = lda_model.show_topics(formatted=False)
     topic_words = dict(topics[0][1])
