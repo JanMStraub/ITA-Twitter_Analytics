@@ -8,6 +8,7 @@ from pipeline import get_links_from_tweet
 from get_tweets import save_trend_to_storage
 from build_wordcloud import create_and_save_wordcloud_to_storage
 from build_topic_modeling import perform_LDA
+from sentiment_analysis import *
 
 #Hyperparameter
 TOTAL_AMOUNT = 200
@@ -27,8 +28,11 @@ def analyze_trend(trend):
         unshort_top_links[r.url] = top_links[url]
 
     create_and_save_wordcloud_to_storage(trend, data)
-    topic_words = perform_LDA(trend, data)
+    topic_words = perform_LDA(trend + '.json', data)
     topic_words.update((k, str(v)) for k, v in topic_words.items())
+
+    percentage_positive, percentage_neutral, percentage_negative = sentiment_analysis(trend + '.json')
+    create_pie_chart(trend + '.json', percentage_positive, percentage_neutral, percentage_negative)
 
     with open(os.path.dirname(os.path.abspath(__file__)) + '/../storage/jsons/' + trend + ".json") as file:
         tweet_count = len(json.load(file))
@@ -41,6 +45,6 @@ def analyze_trend(trend):
 
 if __name__ == "__main__":
 
-    analyze_trend("#dopa")
+    analyze_trend("#sterntv")
 
     print("You are doing great! :)")

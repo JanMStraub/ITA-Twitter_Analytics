@@ -67,6 +67,7 @@ def model_visualization(trend, lda_model, current_dir):
     OUT:
     topic_words (dict): dict with counted topic words 
     """
+    print(type(lda_model))
 
     topics = lda_model.show_topics(formatted=False)
     topic_words = dict(topics[0][1])
@@ -86,10 +87,12 @@ def perform_LDA(trend, data):
     topic_words (dict): dict with counted topic words
     """
 
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
     list_data = convert_dict_to_list(data)
     corpus_data, id2word_data = preparing_data_for_LDA(list_data)
     lda_model_data = model_training(corpus_data, id2word_data)
-    topic_words = model_visualization(trend, corpus_data, lda_model_data)
+    topic_words = model_visualization(trend, lda_model_data, current_dir)
 
     return topic_words
 
@@ -98,8 +101,9 @@ if __name__ == '__main__':
     # get all trend filenames from storage
     current_dir = os.path.dirname(os.path.abspath(__file__))
     trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
+    trends = ["#sterntv.json"]
 
-    for trend in trends[26:28]: # select TEST.json for testing
+    for trend in trends: # select TEST.json for testing
         data = clean_tweets(trend)
         list_data = convert_dict_to_list(data)
         corpus_data, id2word_data = preparing_data_for_LDA(list_data)
