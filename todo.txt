@@ -1,11 +1,4 @@
-- count links in pipeline (top five links)
-- work with data
-- parse results to frontend
-
-Main: Topic Modelling
-2.: Wordcloud
-3.: Webpage Ranking
-4.: optional: Topic Classification (Label die nehmen dem Trend stehen, i.e. "Politics")
-5.: optional: Sentiment analysis (How many tweets are pos./neg./neutr.)
-
 - Bigrams in Pipeline
+- review code
+- comment code
+- review nltk.download
