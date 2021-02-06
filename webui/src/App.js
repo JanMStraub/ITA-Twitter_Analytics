@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import LandingPage from './Components/LandingPage';
 import AboutProject from './Components/AboutProject';
-import Mobile from './Components/mobile_notifiy';
+import Mobile from './Components/MobileNotifiy';
 import Contact from './Components/Contact';
 
 function App() {

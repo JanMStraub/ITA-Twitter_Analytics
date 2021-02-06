@@ -1,5 +1,5 @@
 import React from 'react';
-import './botbar.css'
+import './Botbar.css'
 import { Link } from 'react-router-dom';
 
 function Botbar() {

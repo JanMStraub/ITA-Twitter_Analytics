@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TrendList from './TrendList';
 import TrendStats from './TrendStats';
-import './results.css'
+import './Results.css'
 
 class Results extends Component {
     constructor() {

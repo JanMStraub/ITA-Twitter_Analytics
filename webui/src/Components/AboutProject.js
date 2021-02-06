@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet'
-import Navbar from './navbar';
-import Botbar from './botbar';
+import Navbar from './Navbar';
+import Botbar from './Botbar';
 import './AboutProject.css'
 import headertext from '../images/headertext.png'
 import pipeline from '../images/pipeline.png'

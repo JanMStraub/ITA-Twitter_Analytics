@@ -1,5 +1,5 @@
 import React from 'react';
-import './mobile_notify.css' 
+import './MobileNotify.css' 
 
 function Mobile() {
     return (
