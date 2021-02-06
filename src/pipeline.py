@@ -82,8 +82,10 @@ def remove_numbers_and_links(tweets):
 
     for index in range(len(tweets)):
         tweets[index] = re.sub(r'[\d]', '', tweets[index])
+        # removes links beginning with "http[s]" and all possible combinations of chars
         tweets[index] = re.sub(
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
+        # to remove multiple underscores
         tweets[index] = tweets[index].replace("_", "")
 
     return tweets

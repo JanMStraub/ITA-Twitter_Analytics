@@ -6,28 +6,29 @@ from wordcloud import WordCloud
 from pipeline import clean_tweets
 
 
-# get all trend filenames from storage
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-
+# to color the plot
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
 def similar_color_func(word=None, font_size=None,
                        position=None, orientation=None,
                        font_path=None, random_state=None):
+
     h = 40  # 0 - 360
     s = 100  # 0 - 100
-    l = random_state.randint(30, 70)  # 0 - 100
-    return "hsl({}, {}%, {}%)".format(h, s, l)
+    random = random_state.randint(30, 70)  # 0 - 100
+    return "hsl({}, {}%, {}%)".format(h, s, random)
 
 
+# to color the plot
 # function from https://towardsdatascience.com/create-word-cloud-into-any-shape-you-want-using-python-d0b88834bc32
 def multi_color_func(word=None, font_size=None,
                      position=None, orientation=None,
                      font_path=None, random_state=None):
+
     colors = [[4, 77, 82],
               [25, 74, 85],
               [82, 43, 84],
               [158, 48, 79]]
+
     rand = random_state.randint(0, len(colors) - 1)
     return "hsl({}, {}%, {}%)".format(colors[rand][0], colors[rand][1], colors[rand][2])
 
@@ -55,12 +56,15 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
     None (png created in storage/wordclouds)
     """
 
+    # get all trend filenames from storage
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     name = str(trend_name).removesuffix('.json')
     path = current_dir + '/../storage/results/' + name + '_wordcloud.png'
 
     if not os.path.exists(path):
         print("processing: " + name)
 
+        # build wordcloud
         wordcloud = WordCloud(
             background_color=None, mode='RGBA', max_words=2000, random_state=42, width=1000, height=1000,
             color_func=multi_color_func, mask=make_circle(), min_word_length=2).generate_from_frequencies(data)
@@ -78,7 +82,7 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words, current_di
     IN:
     trend_name (string): one trend in the form "<trend>"
     topic_words (dict): dict with counted topic words
-    current_dir (string): path to storage     
+    current_dir (string): path to storage
     OUT:
     None (png created in storage/results)
     """
@@ -89,6 +93,7 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words, current_di
     if not os.path.exists(path):
         print("building wordcloud: " + name)
 
+        # build wordcloud
         wordcloud = WordCloud(
             background_color=None, mode='RGBA', max_words=10, random_state=42, width=1000, height=1000,
             color_func=similar_color_func, scale=5).generate_from_frequencies(topic_words)
@@ -104,5 +109,4 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words, current_di
 if __name__ == "__main__":
 
     ...
-        
     print("\nYou are doing great! :)")  # Motivational Message
