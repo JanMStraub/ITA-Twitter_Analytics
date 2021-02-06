@@ -4,7 +4,6 @@ import gensim.models as models
 
 from pipeline import clean_tweets
 from build_wordcloud import create_and_save_wordcloud_to_storage_lda
-from build_plot import create_plot
 
 
 def convert_dict_to_list(data):
@@ -72,7 +71,6 @@ def model_visualization(trend, lda_model, current_dir):
     topic_words = dict(topics[0][1])
 
     create_and_save_wordcloud_to_storage_lda(trend, topic_words, current_dir)
-    create_plot(trend, topic_words, current_dir)
 
     return topic_words
     
@@ -94,6 +92,7 @@ def perform_LDA(trend, data):
     topic_words = model_visualization(trend, lda_model_data, current_dir)
 
     return topic_words
+
 
 if __name__ == '__main__':
 

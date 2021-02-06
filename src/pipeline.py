@@ -54,7 +54,7 @@ def get_links_from_tweet(trend_from_storage):
     IN:
     trend_from_storage (string): one trend in the form "<trend>.json
     OUT:
-    extracted_links (list): list containing all links in on trend
+    count_links(extracted_links) (dict): dict containing all links in on trend
     """
 
     tweets = read_from_storage(trend_from_storage)
@@ -145,6 +145,6 @@ def clean_tweets(trend_from_storage):
 if __name__ == "__main__":
 
     # print(get_links_from_tweet("Kane.json"))
-    clean_tweets("#Streeck.json")
+    print(clean_tweets("#Streeck.json"))
     # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message
