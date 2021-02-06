@@ -65,7 +65,8 @@ def get_links_from_tweet(trend_from_storage):
     for tweet in tweets:
         if re.search(link_string, tweet):
             for link in re.findall(link_string, tweet):
-                extracted_links.append(re.findall(link_string, link))
+                if len(link) == 23:
+                    extracted_links.append(re.findall(link_string, link))
     
     return count_links(extracted_links)
 
@@ -108,8 +109,12 @@ def clean_tweets(trend_from_storage):
     tweets = remove_numbers_and_links(tweets)
 
     german_stop_words = stopwords.words('german')
-    # additional_stopwords = ["rt", "lt"]
-    # german_stop_words.extend(additional_stopwords)
+    # Some Twitter abbreviations
+    additional_stopwords = ["rt", "cn", "tw", "mt", "ht", "prt", "rthx", "tmb", "tl", "tt", "dm", "tldr", "em", 
+                            "fwd", "hth", "irl", "jk", "til", "nsfw", "tmi", "fyi", "idk", "idc", "fb", "yt", "ff",
+                            "de", "gg", "re", "gt", "sc", "str", "whs", "ne", "rbg", "kah", "gk", "ps", "bo", "jp",
+                            "je", "en", "ft", "ik", "lol", "mh", "pe", "oh", "btw", "jpg", "png", "to", "nr"]
+    german_stop_words.extend(additional_stopwords)
 
     lemmatized_dict = {}
     tweet_list = []
@@ -133,23 +138,13 @@ def clean_tweets(trend_from_storage):
                     lemmatized_dict[word] = 1
                 else:
                     lemmatized_dict[word] += 1
-    
-    # TODO: Bigrams
-    
-    # print(tweet_list)
-    # define the phraser for bi-gram creation#
-    # phrases = Phrases(tweet_list, threshold=2)
-    # bigram = Phraser(phrases)
-
-    # new_lines = bigram[tweet_list[5]]
-    #print(new_lines)
 
     return lemmatized_dict
 
 
 if __name__ == "__main__":
 
-    # print(get_links_from_tweet("TEST.json"))
-    print(clean_tweets("TEST.json"))
+    # print(get_links_from_tweet("Kane.json"))
+    clean_tweets("#Streeck.json")
     # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message
