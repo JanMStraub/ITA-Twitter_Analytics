@@ -99,7 +99,7 @@ if __name__ == '__main__':
     # get all trend filenames from storage
     current_dir = os.path.dirname(os.path.abspath(__file__))
     trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
-    trends = ["#sterntv.json"]
+    trends = ["#Lanz.json"]
 
     for trend in trends: # select TEST.json for testing
         data = clean_tweets(trend)
