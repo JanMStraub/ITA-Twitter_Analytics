@@ -138,12 +138,6 @@ def clean_tweets(trend_from_storage):
                     lemmatized_dict[word] = 1
                 else:
                     lemmatized_dict[word] += 1
-    
-    # define the phraser for bi-gram creation
-    phrases = Phrases(tweet_list, threshold=2)
-    bigram = Phraser(phrases)
-
-    new_lines = bigram[tweet_list]
 
     return lemmatized_dict
 
@@ -151,6 +145,6 @@ def clean_tweets(trend_from_storage):
 if __name__ == "__main__":
 
     # print(get_links_from_tweet("Kane.json"))
-    print(clean_tweets("Russell.json"))
+    clean_tweets("#Streeck.json")
     # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message
