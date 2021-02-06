@@ -142,6 +142,8 @@ def save_trend_to_storage(trend, total_amount):
         print("processing: " + trend["name"])
 
         data = get_tweets(total_amount, trend["query"])
+        if (len(data) == 0):
+            raise RuntimeError('Trend does not contain any tweets: ' + trend["name"])
         json_data = json.dumps(data, indent=4, sort_keys=True)
 
         with open(path, 'w') as output:
