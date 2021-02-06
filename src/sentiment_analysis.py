@@ -45,7 +45,7 @@ def sentiment_analysis(trend_from_storage):
     # calculate the percentage of positive/ neutral/ negative tweets of the trend
     percentage_positive = positive_tweets/len(tweets_of_trend)
     percentage_neutral = neutral_tweets/len(tweets_of_trend)
-    percentage_negative = negative_tweets/len(tweets_of_trend)        
+    percentage_negative = negative_tweets/len(tweets_of_trend)
     
     return percentage_positive, percentage_neutral, percentage_negative
 

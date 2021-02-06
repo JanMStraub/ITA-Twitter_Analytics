@@ -61,7 +61,7 @@ def get_links_from_tweet(trend_from_storage):
 
     extracted_links = []
     
-    link_string = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
+    link_string = r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
     for tweet in tweets:
         if re.search(link_string, tweet):
             for link in re.findall(link_string, tweet):
@@ -117,7 +117,7 @@ def clean_tweets(trend_from_storage):
     for tweet in tweets:
         
         # lower case and remove non-alphabetic characters
-        tweet = str(re.sub("[/']", '', re.sub("[^A-ZÄÖÜa-zäöüß\d']+", ' ', str(tweet))).lower())
+        tweet = str(re.sub("[/']", '', re.sub(r"[^A-ZÄÖÜa-zäöüß\d']+", ' ', str(tweet))).lower())
         tweet = nlp.tokenizer(tweet)
         # removing the stopwords
         tweet = [str(word) for word in tweet if str(word) not in german_stop_words]

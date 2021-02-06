@@ -2,3 +2,15 @@
 - review code
 - comment code
 - review nltk.download
+- line 33-43 in sentiment-analysis? neutral tweets handling
+
+- review code
+    - build_plot.py
+    - build_topic_modeling.py
+    - build_wordcloud.py
+    - flask_api.py
+    - get_tweets.py
+    - main.py
+    - pipeline.py
+    - sentiment_analysis.py
+    - test_pipeline.py
