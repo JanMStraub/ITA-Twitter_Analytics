@@ -138,10 +138,10 @@ def clean_tweets(trend_from_storage):
     
     # print(tweet_list)
     # define the phraser for bi-gram creation#
-    phrases = Phrases(tweet_list, threshold=2)
-    bigram = Phraser(phrases)
+    # phrases = Phrases(tweet_list, threshold=2)
+    # bigram = Phraser(phrases)
 
-    new_lines = bigram[tweet_list[5]]
+    # new_lines = bigram[tweet_list[5]]
     #print(new_lines)
 
     return lemmatized_dict
