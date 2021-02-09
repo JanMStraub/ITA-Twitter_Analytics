@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ITA-Twitter_Analytics/static/css/main.e7c1e350.chunk.css",
-    "main.js": "/ITA-Twitter_Analytics/static/js/main.cecfd852.chunk.js",
-    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.cecfd852.chunk.js.map",
-    "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.51d0a467.js",
-    "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.51d0a467.js.map",
-    "static/js/2.6e9360f2.chunk.js": "/ITA-Twitter_Analytics/static/js/2.6e9360f2.chunk.js",
-    "static/js/2.6e9360f2.chunk.js.map": "/ITA-Twitter_Analytics/static/js/2.6e9360f2.chunk.js.map",
-    "static/js/3.74314e65.chunk.js": "/ITA-Twitter_Analytics/static/js/3.74314e65.chunk.js",
-    "static/js/3.74314e65.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.74314e65.chunk.js.map",
+    "main.css": "/ITA-Twitter_Analytics/static/css/main.a87f1a94.chunk.css",
+    "main.js": "/ITA-Twitter_Analytics/static/js/main.b93c4734.chunk.js",
+    "main.js.map": "/ITA-Twitter_Analytics/static/js/main.b93c4734.chunk.js.map",
+    "runtime-main.js": "/ITA-Twitter_Analytics/static/js/runtime-main.e9322942.js",
+    "runtime-main.js.map": "/ITA-Twitter_Analytics/static/js/runtime-main.e9322942.js.map",
+    "static/js/2.90e287af.chunk.js": "/ITA-Twitter_Analytics/static/js/2.90e287af.chunk.js",
+    "static/js/2.90e287af.chunk.js.map": "/ITA-Twitter_Analytics/static/js/2.90e287af.chunk.js.map",
+    "static/js/3.aba3000b.chunk.js": "/ITA-Twitter_Analytics/static/js/3.aba3000b.chunk.js",
+    "static/js/3.aba3000b.chunk.js.map": "/ITA-Twitter_Analytics/static/js/3.aba3000b.chunk.js.map",
     "index.html": "/ITA-Twitter_Analytics/index.html",
-    "static/css/main.e7c1e350.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.e7c1e350.chunk.css.map",
-    "static/js/2.6e9360f2.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.6e9360f2.chunk.js.LICENSE.txt",
+    "static/css/main.a87f1a94.chunk.css.map": "/ITA-Twitter_Analytics/static/css/main.a87f1a94.chunk.css.map",
+    "static/js/2.90e287af.chunk.js.LICENSE.txt": "/ITA-Twitter_Analytics/static/js/2.90e287af.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ITA-Twitter_Analytics/static/media/Montserrat-MediumItalic.54b24d99.ttf",
     "static/media/LandingPage.css": "/ITA-Twitter_Analytics/static/media/background1.b4cc66ca.png",
-    "static/media/mobile_notify.css": "/ITA-Twitter_Analytics/static/media/background2.62f81cef.png",
+    "static/media/Demo.css": "/ITA-Twitter_Analytics/static/media/background2.62f81cef.png",
     "static/media/Contact.css": "/ITA-Twitter_Analytics/static/media/background3.2d13159f.png",
     "static/media/contact_headertext.0dc1546d.png": "/ITA-Twitter_Analytics/static/media/contact_headertext.0dc1546d.png",
     "static/media/headertext.df3e7990.png": "/ITA-Twitter_Analytics/static/media/headertext.df3e7990.png",
@@ -22,9 +22,9 @@
     "static/media/pipeline.49a091d9.png": "/ITA-Twitter_Analytics/static/media/pipeline.49a091d9.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.51d0a467.js",
-    "static/js/2.6e9360f2.chunk.js",
-    "static/css/main.e7c1e350.chunk.css",
-    "static/js/main.cecfd852.chunk.js"
+    "static/js/runtime-main.e9322942.js",
+    "static/js/2.90e287af.chunk.js",
+    "static/css/main.a87f1a94.chunk.css",
+    "static/js/main.b93c4734.chunk.js"
   ]
 }
