@@ -1,7 +1,6 @@
-# this is inspired from https://towardsdatascience.com/step-by-step-twitter-sentiment-analysis-in-python-d6f650ade58d
 import matplotlib.pyplot as plt
 import os
-from vaderSentimentGER import SentimentIntensityAnalyzer
+from GerVADER.vaderSentimentGER import SentimentIntensityAnalyzer
 
 from pipeline import read_from_storage
 
