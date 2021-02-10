@@ -1,4 +1,6 @@
 # Storage // add storage-folder to this file for deployment
+storage/
+
 .vscode/
 
 # Byte-compiled / optimized / DLL files

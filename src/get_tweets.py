@@ -100,7 +100,7 @@ def get_tweets(total_amount, query):
         # for last loop if total_amount % 100 != 0
         if total_amount < 100:
             scrape_amount = total_amount
-        
+
         url = create_url(scrape_amount, query)
         # next_token tells the API where the last request ended
         if next_token != "":
@@ -115,7 +115,7 @@ def get_tweets(total_amount, query):
             print("not enough tweets for query: " + query)
             break
         data += dict_response["data"]
-        
+
         total_amount -= scrape_amount
 
     return data
@@ -128,25 +128,27 @@ def save_trend_to_storage(trend, total_amount):
     filename = trend + '.json'
     path = current_dir + '/../storage/jsons/' + filename
 
-    #getting the trend dict for trend["query"]
+    # getting the trend dict for trend["query"]
     with open(current_dir + '/../storage/trends.json') as trends:
         for trend_dict in json.load(trends):
             if trend_dict["name"] == trend:
                 trend = trend_dict
                 break
-    
+
     if isinstance(trend, str):
         raise RuntimeError('Trend not found in trends.json: ' + trend)
 
     if not os.path.exists(path):
         print("processing: " + trend["name"])
-        
+
         data = get_tweets(total_amount, trend["query"])
+        if (len(data) == 0):
+            raise RuntimeError('Trend does not contain any tweets: ' + trend["name"])
         json_data = json.dumps(data, indent=4, sort_keys=True)
 
         with open(path, 'w') as output:
-                output.write(json_data)
-                print("Data successfully writen to storage/jsons" + filename)
+            output.write(json_data)
+            print("Data successfully writen to storage/jsons" + filename)
     else:
         print("skipping " + trend["name"] + " -> already in storage")
 

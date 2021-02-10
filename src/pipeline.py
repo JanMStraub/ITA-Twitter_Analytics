@@ -3,8 +3,9 @@ import os
 import nltk
 import re
 import spacy
+
 from nltk.corpus import stopwords
-from sklearn.feature_extraction.text import CountVectorizer
+from gensim.models.phrases import Phrases, Phraser
 
 
 def read_from_storage(filename):
@@ -60,10 +61,12 @@ def get_links_from_tweet(trend_from_storage):
 
     extracted_links = []
     
-    link_string = "(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
+    link_string = r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
     for tweet in tweets:
         if re.search(link_string, tweet):
-            extracted_links.append(re.findall(link_string, tweet))
+            for link in re.findall(link_string, tweet):
+                if len(link) == 23:
+                    extracted_links.append(re.findall(link_string, link))
     
     return count_links(extracted_links)
 
@@ -80,6 +83,7 @@ def remove_numbers_and_links(tweets):
         tweets[index] = re.sub(r'[\d]', '', tweets[index])
         tweets[index] = re.sub(
             r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', tweets[index])
+        tweets[index] = tweets[index].replace("_", "")
 
     return tweets
 
@@ -93,7 +97,7 @@ def clean_tweets(trend_from_storage):
     """
 
     # load nltk stopwords
-    # TODO: obsolete ?
+    # TODO: move to main ?
     nltk.download('stopwords')
     # load NLP for tokenisation/lemmatization
     nlp = spacy.load('de_core_news_sm')
@@ -101,28 +105,46 @@ def clean_tweets(trend_from_storage):
 
     tweets = read_from_storage(trend_from_storage)
 
-    # Remove all numbers and links
+    # Remove all numbers, links and underscores
     tweets = remove_numbers_and_links(tweets)
 
     german_stop_words = stopwords.words('german')
-    vectorizer = CountVectorizer(analyzer="word", lowercase=True, stop_words=german_stop_words)
-    X = vectorizer.fit_transform(tweets).toarray()
+    # Some Twitter abbreviations
+    additional_stopwords = ["rt", "cn", "tw", "mt", "ht", "prt", "rthx", "tmb", "tl", "tt", "dm", "tldr", "em", 
+                            "fwd", "hth", "irl", "jk", "til", "nsfw", "tmi", "fyi", "idk", "idc", "fb", "yt", "ff",
+                            "de", "gg", "re", "gt", "sc", "str", "whs", "ne", "rbg", "kah", "gk", "ps", "bo", "jp",
+                            "je", "en", "ft", "ik", "lol", "mh", "pe", "oh", "btw", "jpg", "png", "to", "nr"]
+    german_stop_words.extend(additional_stopwords)
 
     lemmatized_dict = {}
-    sorted_list = dict(vectorizer.vocabulary_.items())
+    tweet_list = []
 
-    for string in list(sorted_list.keys()):
-        index = sorted_list[string]
-        for t in nlp.tokenizer(string):
-            if t.lemma_ not in lemmatized_dict:
-                lemmatized_dict[t.lemma_] = X[0:X.shape[0], index].sum()
-            else:
-                lemmatized_dict[t.lemma_] += X[0:X.shape[0], index].sum()
+    for tweet in tweets:
+        
+        # lower case and remove non-alphabetic characters
+        tweet = str(re.sub("[/']", '', re.sub(r"[^A-ZÄÖÜa-zäöüß\d']+", ' ', str(tweet))).lower())
+        tweet = nlp.tokenizer(tweet)
+        # removing the stopwords
+        tweet = [str(word) for word in tweet if str(word) not in german_stop_words]
+        # removing one char tokens
+        tweet = [word for word in tweet if (len(word) > 1)]
+        # removing empty tokens
+        tweet = [word for word in tweet if (len(word) != 0)]
+        # removing empty list
+        if len(tweet) > 0:
+            tweet_list.append(tweet)
+            for word in tweet:
+                if word not in lemmatized_dict:
+                    lemmatized_dict[word] = 1
+                else:
+                    lemmatized_dict[word] += 1
 
     return lemmatized_dict
 
+
 if __name__ == "__main__":
 
-    print(get_links_from_tweet("TEST.json"))
-    print(clean_tweets("TEST.json"))
+    # print(get_links_from_tweet("Kane.json"))
+    clean_tweets("#Streeck.json")
+    # print(clean_tweets("#AdoreYouDay.json"))
     print("\nYou are doing great! :)")  # Motivational Message

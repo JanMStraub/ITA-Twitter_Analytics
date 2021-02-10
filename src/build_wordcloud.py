@@ -49,7 +49,7 @@ def make_circle():
 def create_and_save_wordcloud_to_storage(trend_name, data):
     """
     IN:
-    trend_name (str): one trend in the form "<trend>"
+    trend_name (string): one trend in the form "<trend>"
     data (dict): preprocessed data dict for that trend, structure: {"word": <word count>, ...}
     OUT:
     None (png created in storage/wordclouds)
@@ -73,7 +73,16 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
         print("skipping " + name + " -> already in storage")
 
 
-def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words):
+def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words, current_dir):
+    """
+    IN:
+    trend_name (string): one trend in the form "<trend>"
+    topic_words (dict): dict with counted topic words
+    current_dir (string): path to storage     
+    OUT:
+    None (png created in storage/results)
+    """
+
     name = str(trend_name).removesuffix('.json')
     path = current_dir + '/../storage/results/' + name + '_lda.png'
 
