@@ -1,9 +1,6 @@
 # this is inspired from https://towardsdatascience.com/step-by-step-twitter-sentiment-analysis-in-python-d6f650ade58d
-from textblob import TextBlob
 import matplotlib.pyplot as plt
 import os
-import nltk
-import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 from pipeline import read_from_storage
@@ -29,9 +26,9 @@ def sentiment_analysis(trend_from_storage):
     tweets_of_trend = read_from_storage(trend_from_storage)
 
     # analyze each individual tweet with TextBlob
+    analyzer = SentimentIntensityAnalyzer()
     for tweet in tweets_of_trend:
-        tweet_analysis = TextBlob(tweet)
-        score = SentimentIntensityAnalyzer().polarity_scores(tweet)
+        score = analyzer.polarity_scores(tweet)
         neg, neu, pos = score["neg"], score["neu"], score["pos"]
 
         if neg > pos:
@@ -42,9 +39,9 @@ def sentiment_analysis(trend_from_storage):
             neutral_tweets += 1
         
     # calculate the percentage of positive/ neutral/ negative tweets of the trend
-    percentage_positive = positive_tweets/len(tweets_of_trend)
-    percentage_neutral = neutral_tweets/len(tweets_of_trend)
-    percentage_negative = negative_tweets/len(tweets_of_trend)        
+    percentage_positive = positive_tweets / len(tweets_of_trend)
+    percentage_neutral = neutral_tweets / len(tweets_of_trend)
+    percentage_negative = negative_tweets / len(tweets_of_trend)        
     
     return percentage_positive, percentage_neutral, percentage_negative
 
@@ -92,7 +89,7 @@ def create_pie_chart(trend_from_storage, percentage_positive, percentage_neutral
 
     # save figure in storage
     trend_name = str(trend_from_storage).removesuffix('.json')
-    save_path = current_dir + '/../storage/results/' + trend_name + '_sentiment_pie_chart.png'
+    save_path = current_dir + '/../storage/results/' + trend_name + '_sentiment_pie_chart_vader.png'
     fig.savefig(save_path, transparent = True)
     plt.close(fig)
 
