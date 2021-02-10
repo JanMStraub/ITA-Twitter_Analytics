@@ -23,11 +23,20 @@ def analyze_trend_api():
 # return list of current top 50 trends
 @app.route('/trend_list')
 def trend_list():
-    trends = get_trends()
-    with open(os.path.dirname(os.path.abspath(__file__)) + '/../storage/trends.json', 'w') as file:
-        json.dump(trends, file)
+    demo = request.args.get('demo')
 
-    return json.dumps([item["name"] for item in trends])
+    # return demo trends if site in demo mode := /trend_list?demo=True
+    if demo == "True":
+        with open(os.path.dirname(os.path.abspath(__file__)) + '/../storage/demo_trends.json', 'r') as file:
+            trends = json.load(file)
+
+        return json.dumps([item["name"] for item in trends])
+    else:
+        trends = get_trends()
+        with open(os.path.dirname(os.path.abspath(__file__)) + '/../storage/trends.json', 'w') as file:
+            json.dump(trends, file)
+
+        return json.dumps([item["name"] for item in trends])
 
 
 # makes files in /storage/results available via their name

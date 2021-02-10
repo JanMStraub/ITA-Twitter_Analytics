@@ -52,6 +52,9 @@ def analyze_trend(trend):
                     "links": unshort_top_links
                     }
 
+    with open(os.path.dirname(os.path.abspath(__file__)) + '/../storage/results/' + trend + ".json", 'w') as outfile:
+        json.dump(results_json, outfile, indent=4)
+
     return results_json
 
 
