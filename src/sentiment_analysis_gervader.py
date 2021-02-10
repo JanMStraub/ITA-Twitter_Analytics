@@ -24,7 +24,7 @@ def sentiment_analysis(trend_from_storage):
 
     tweets_of_trend = read_from_storage(trend_from_storage)
 
-    # analyze each individual tweet with TextBlob
+    # analyze each individual tweet with GerVader
     analyzer = SentimentIntensityAnalyzer()
     for tweet in tweets_of_trend:
         score = analyzer.polarity_scores(tweet)

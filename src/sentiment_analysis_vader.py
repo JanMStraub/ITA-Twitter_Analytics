@@ -5,11 +5,12 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 from pipeline import read_from_storage
 
+# download vader lexicon
+nltk.download('vader_lexicon')
+
 # get all trend filenames from storage
 current_dir = os.path.dirname(os.path.abspath(__file__))
 trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
-
-nltk.download('vader_lexicon')
 
 def sentiment_analysis(trend_from_storage):
     """
@@ -27,7 +28,7 @@ def sentiment_analysis(trend_from_storage):
 
     tweets_of_trend = read_from_storage(trend_from_storage)
 
-    # analyze each individual tweet with TextBlob
+    # analyze each individual tweet with Vader
     analyzer = SentimentIntensityAnalyzer()
     for tweet in tweets_of_trend:
         score = analyzer.polarity_scores(tweet)
