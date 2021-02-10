@@ -7,7 +7,7 @@ from pipeline import get_links_from_tweet
 from get_tweets import save_trend_to_storage
 from build_wordcloud import create_and_save_wordcloud_to_storage
 from build_topic_modeling import perform_LDA
-from sentiment_analysis import sentiment_analysis, create_pie_chart
+from sentiment_analysis_gervader import sentiment_analysis, create_pie_chart
 
 # Hyperparameter
 TOTAL_AMOUNT = 200
