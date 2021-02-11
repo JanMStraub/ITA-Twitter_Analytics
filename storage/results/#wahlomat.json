@@ -1,0 +1,24 @@
+{
+    "trend": "#wahlomat",
+    "tweet_count": 199,
+    "keywords": {
+        "wahlomat": "0.06346646",
+        "landtagswahl": "0.013398641",
+        "partei": "0.011282491",
+        "ltwbw": "0.009873096",
+        "pfalz": "0.008814981",
+        "rheinland": "0.0088149505",
+        "w\u00fcrttemberg": "0.008109637",
+        "wahl": "0.008109417",
+        "ltwrlp": "0.007757055",
+        "baden": "0.0074046734"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://twitter.com/Der_Dutschi/status/1359463602554630150/photo/1": 5,
+        "https://www.showmax.com/eng/welcome/de": 4,
+        "https://twitter.com/Maurice_Conrad/status/1359494177751519237/photo/1": 3,
+        "https://twitter.com/_HelloPunk/status/1359466409483509763/photo/1": 3,
+        "https://prod.wahlomat.spiegel.de/2021BW/app/main_app.html": 3
+    }
+}

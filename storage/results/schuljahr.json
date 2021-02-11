@@ -1,0 +1,23 @@
+{
+    "trend": "schuljahr",
+    "tweet_count": 199,
+    "keywords": {
+        "schuljahr": "0.030453693",
+        "karllauterbach": "0.025427753",
+        "vorschlag": "0.019512141",
+        "wenig": "0.01803544",
+        "moment": "0.017741263",
+        "langfrist": "0.01774026",
+        "kurzfristige": "0.017739998",
+        "schul\u00f6ffnungen": "0.017739862",
+        "strategie": "0.017739655",
+        "reden": "0.017739248"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.spiegel.de/panorama/bildung/corona-folgen-wir-sollten-das-schuljahr-bundesweit-bis-weihnachten-verlaengern-a-86cef326-9ac8-4289-a5f9-154a12bc7822": 1,
+        "https://twitter.com/agitpopblog/status/1359490158979125252/photo/1": 1,
+        "https://twitter.com/SimoneZiefle/status/1359485983973134340/photo/1": 1,
+        "https://twitter.com/quarkswdr/status/1359167692557717504": 1
+    }
+}

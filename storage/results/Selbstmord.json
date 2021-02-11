@@ -1,0 +1,24 @@
+{
+    "trend": "Selbstmord",
+    "tweet_count": 200,
+    "keywords": {
+        "selbstmord": "0.05956334",
+        "boateng": "0.010772669",
+        "trendet": "0.010138544",
+        "menschen": "0.008871569",
+        "bild": "0.0076040747",
+        "suizid": "0.006970822",
+        "ex": "0.00665362",
+        "klappt": "0.0060201786",
+        "sozialen": "0.00602016",
+        "virus": "0.0060200556"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.mopo.de/": 3,
+        "https://twitter.com/Moneyboyfan37/status/1359498587827277824/photo/1": 1,
+        "https://twitter.com/adrian_2023/status/1359498374286876674/photo/1": 1,
+        "https://twitter.com/sky_torben/status/1359495454589931520": 1,
+        "https://paradiesauferden.com/?p=5467": 1
+    }
+}

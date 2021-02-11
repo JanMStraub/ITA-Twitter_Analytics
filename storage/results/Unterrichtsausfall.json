@@ -1,0 +1,23 @@
+{
+    "trend": "Unterrichtsausfall",
+    "tweet_count": 200,
+    "keywords": {
+        "unterrichtsausfall": "0.039359808",
+        "karllauterbach": "0.039359648",
+        "reden": "0.021038188",
+        "vorschlag": "0.020698667",
+        "strategie": "0.020359725",
+        "schul\u00f6ffnungen": "0.02035908",
+        "wenig": "0.020359019",
+        "moment": "0.020358952",
+        "kurzfristige": "0.020358842",
+        "langfrist": "0.020358723"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.northeim.de/startseite-details/witterungsbedingter-unterrichtsausfall.html": 1,
+        "https://twitter.com/Northeim_de/status/1359497682927124483/photo/1": 1,
+        "https://twitter.com/Karl_Lauterbach/status/1359479260382167040": 1,
+        "https://twitter.com/Karl_Lauterbach/status/1359479260382167040?s=20": 1
+    }
+}

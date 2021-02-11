@@ -1,0 +1,24 @@
+{
+    "trend": "#CoronaGipfel",
+    "tweet_count": 200,
+    "keywords": {
+        "coronagipfel": "0.03415895",
+        "corona": "0.015719172",
+        "lockdown": "0.014510042",
+        "lockdownverlaengerung": "0.010579927",
+        "pandemie": "0.0075569376",
+        "regierung": "0.0066502444",
+        "homeschooling": "0.006649712",
+        "lockerungen": "0.0063482984",
+        "\u00f6ffnungsorgien": "0.006045716",
+        "\u00f6ffnen": "0.0057436125"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.openpetition.de/petition/online/gerechtigkeit-fuer-abschlussklassen": 17,
+        "https://twitter.com/Herr_Lehmann_/status/1359463506622447616/photo/1": 4,
+        "https://twitter.com/browserballett/status/1359498106367336450/photo/1": 3,
+        "https://www.gew-sachsen.de/presse/pressemitteilungen/neuigkeiten/nichts-gelernt-wer-jetzt-schneller-oeffnet-muss-spaeter-laenger-schliessen/": 2,
+        "https://twitter.com/nittom/status/1359498780702363650/photo/1": 1
+    }
+}

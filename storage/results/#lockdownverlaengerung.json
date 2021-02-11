@@ -1,0 +1,24 @@
+{
+    "trend": "#lockdownverlaengerung",
+    "tweet_count": 200,
+    "keywords": {
+        "lockdownverlaengerung": "0.03740202",
+        "egal": "0.015024903",
+        "lockdown": "0.010229506",
+        "mehr": "0.007672087",
+        "wert": "0.0063935854",
+        "inzidenz": "0.005754132",
+        "wochen": "0.005114649",
+        "eigentlich": "0.0041557285",
+        "schulen": "0.0041557034",
+        "inzidenzwert": "0.0038361484"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.spiegel.de/wirtschaft/unternehmen/corona-impfstoff-biontech-faehrt-impfstoffproduktion-in-marburg-hoch-a-ae2a498b-88e5-449e-b746-29bd08afc748": 1,
+        "https://twitter.com/schmitt_anton/status/1359496525911646210/video/1": 1,
+        "https://www.who.int/news/item/20-01-2021-who-information-notice-for-ivd-users-2020-05": 1,
+        "https://twitter.com/ZakiaMohammed19/status/1359496258545590280/photo/1": 1,
+        "https://twitter.com/henriette_nette/status/1359496216707551233/photo/1": 1
+    }
+}

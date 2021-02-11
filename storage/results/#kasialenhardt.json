@@ -1,0 +1,24 @@
+{
+    "trend": "#kasialenhardt",
+    "tweet_count": 200,
+    "keywords": {
+        "kasialenhardt": "0.035053898",
+        "bild": "0.023161462",
+        "suizid": "0.020030798",
+        "kasia": "0.01752703",
+        "lenhardt": "0.015022872",
+        "boateng": "0.014710026",
+        "berichtet": "0.012832582",
+        "n\u00fcchternheit": "0.012832363",
+        "mutma\u00dflichen": "0.012832184",
+        "models": "0.012832125"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.youtube.com/watch?v=AT6ytPiLBYM&feature=youtu.be": 3,
+        "https://twitter.com/AbuGossip1/status/1359498294137872385/photo/1": 1,
+        "https://twitter.com/asyalove20/status/1359497904017268736/photo/1": 1,
+        "https://twitter.com/_yungretard/status/1359497287546920961/photo/1": 1,
+        "https://snanews.de/20210210/ex-freundin-von-boateng-tot-856606.html": 1
+    }
+}

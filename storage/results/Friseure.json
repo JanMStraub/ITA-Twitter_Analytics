@@ -1,0 +1,24 @@
+{
+    "trend": "Friseure",
+    "tweet_count": 200,
+    "keywords": {
+        "friseure": "0.05863913",
+        "nikitheblogger": "0.018517638",
+        "ab": "0.013373999",
+        "geschlossen": "0.013373978",
+        "s\u00f6der": "0.01303118",
+        "pleite": "0.012688465",
+        "halten": "0.012688419",
+        "schon": "0.012688126",
+        "immer": "0.01234579",
+        "\u00f6ffnen": "0.012002538"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.der-postillon.com/2021/02/friseure.html": 12,
+        "https://twitter.com/paolo_calleri/status/1359497807288295429/photo/1": 3,
+        "https://www.bild.de/regional/berlin/berlin-aktuell/es-ist-ein-drama-friseure-kaempfen-vor-gericht-gegen-corona-pleite-75291500.bild.html": 3,
+        "https://www.tagesspiegel.de/politik/lockdown-verlaengerung-wohl-bis-14-maerz-kitas-schulen-und-friseure-sollen-frueher-oeffnen-duerfen/26898498.html": 2,
+        "https://www.focus.de/finanzen/verlaengerung-und-lockerungen-friseure-aldi-h-m-ikea-restaurants-und-fitnessstudios-das-aendert-sich-jetzt-nach-dem-corona-gipfel_id_12965071.html": 2
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "trend": "Auff\u00e4lligkeiten",
+    "tweet_count": 200,
+    "keywords": {
+        "kind": "0.034016937",
+        "auff\u00e4lligkeiten": "0.030642252",
+        "zeigt": "0.027549548",
+        "studie": "0.02586377",
+        "corona": "0.023615437",
+        "psychische": "0.021366062",
+        "jahr": "0.01995986",
+        "knappes": "0.019116383",
+        "fast": "0.018835409",
+        "hamburg": "0.017711047"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://www.euromomo.eu/graphs-and-maps/": 3,
+        "https://www.spiegel.de/wissenschaft/medizin/coronavirus-fast-jedes-dritte-kind-zeigt-psychische-auffaelligkeiten-a-644b9a10-4e07-4d71-a690-b9bdfb97da60": 1,
+        "https://www.spiegel.de/wissenschaft/medizin/coronavirus-fast-jedes-dritte-kind-zeigt-psychische-auffaelligkeiten-a-644b9a10-4e07-4d71-a690-b9bdfb97da60?utm_source=dlvr.it&utm_medium=twitter#ref=rss": 2,
+        "https://twitter.com/SPIEGEL_alles/status/1359465907198722049/photo/1": 2
+    }
+}

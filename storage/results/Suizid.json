@@ -1,0 +1,24 @@
+{
+    "trend": "Suizid",
+    "tweet_count": 199,
+    "keywords": {
+        "suizid": "0.05171705",
+        "kasia": "0.022824982",
+        "lenhardt": "0.01589103",
+        "bild": "0.010979165",
+        "models": "0.009244955",
+        "mutma\u00dflichen": "0.009244593",
+        "blatt": "0.008956786",
+        "h\u00e4": "0.008956778",
+        "suggeriert": "0.008956571",
+        "berichtet": "0.008956458"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://twitter.com/ottfinger/status/1359473119635857408": 1,
+        "https://twitter.com/Die_Drogenlobby/status/1359499374125006858/photo/1": 1,
+        "https://twitter.com/melisabangx/status/1359484260055453699": 1,
+        "https://twitter.com/asyalove20/status/1359497904017268736/photo/1": 1,
+        "https://www.deutsche-depressionshilfe.de/presse-und-pr/berichterstattung-suizide": 1
+    }
+}

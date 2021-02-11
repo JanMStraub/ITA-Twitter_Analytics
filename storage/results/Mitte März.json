@@ -1,0 +1,24 @@
+{
+    "trend": "Mitte M\u00e4rz",
+    "tweet_count": 200,
+    "keywords": {
+        "m\u00e4rz": "0.043856487",
+        "mitte": "0.04298042",
+        "lockdown": "0.03245551",
+        "ab": "0.0125725595",
+        "lockerungen": "0.011988003",
+        "inzidenz": "0.010818626",
+        "erst": "0.010818115",
+        "angesichts": "0.010233391",
+        "mutanten": "0.0099414885",
+        "bundeskanzleramt": "0.009941047"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://philosophia-perennis.com/2021/02/10/eilmeldung-bundeskanzleramt-erste-lockerungen-erst-ab-einer-inzidenz-von-35/?amp=1": 4,
+        "https://www.sueddeutsche.de/wissen/coronavirus-mutante-b117-daten-1.5197700": 4,
+        "https://twitter.com/DesGartner/status/1359437151193223168/photo/1": 2,
+        "https://www.wz.de/politik/inland/lockdown-verlaengerung-bis-mitte-maerz-erwartet_aid-56169255?utm_term=Autofeed&utm_medium=Social&utm_source=Twitter#Echobox=1612951759": 2,
+        "https://newsposter.net/?p=306941": 1
+    }
+}

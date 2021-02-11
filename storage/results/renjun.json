@@ -1,0 +1,24 @@
+{
+    "trend": "renjun",
+    "tweet_count": 200,
+    "keywords": {
+        "renjun": "0.18954247",
+        "weibo": "0.18393898",
+        "nctdreamcenter": "0.18113942",
+        "nctsmtowndream": "0.18113941",
+        "nctdream": "0.1811394",
+        "cc": "0.004668551",
+        "haechan": "0.0037348394",
+        "taeil": "0.0028011359",
+        "ahhhhh": "0.0028011329",
+        "doyoung": "0.0028011312"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://m.weibo.cn/status/4603151930360596": 157,
+        "https://twitter.com/NCTDREAMCENTER/status/1359483055002447881/photo/1": 157,
+        "https://twitter.com/NCTDREAMCENTER/status/1359483068050886657/photo/1": 35,
+        "https://twitter.com/HRJFEED/status/1359062370530717698/photo/1": 2,
+        "https://www.amazon.se/AUKEY-Bluetooth-HiFi-ljud-mikrofoner-USB-C-laddning/dp/B08JGM1RQ6?crid=3IPKMEF87HL8R&dchild=1&keywords=aukey+bluetooth+headphones+sport&qid=1612959076&sprefix=aukey+bluetooth++,aps,197&sr=8-1&linkCode=sl1&tag=kiko05-21&linkId=2f6855817eba7102cc46878f90188939&language=sv_SE&ref_=as_li_ss_tl": 1
+    }
+}

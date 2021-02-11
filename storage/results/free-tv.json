@@ -1,0 +1,24 @@
+{
+    "trend": "free-tv",
+    "tweet_count": 200,
+    "keywords": {
+        "tv": "0.04213162",
+        "free": "0.041844476",
+        "viertelfinale": "0.024361024",
+        "bvb": "0.02235556",
+        "pokal": "0.019775502",
+        "m\u00e4rz": "0.016336009",
+        "live": "0.014903878",
+        "sport": "0.013470757",
+        "uhr": "0.012323489",
+        "dfbpokal": "0.012037461"
+    },
+    "sentiment": "TBI",
+    "links": {
+        "https://sport.sky.de/": 3,
+        "https://tweetedtimes.com/v/1119": 2,
+        "https://zeitsport.blogspot.com/": 2,
+        "https://www.waz.de/sport/fussball/rwe/ansetzungen-im-dfb-pokal-stehen-fest-rwe-fans-sind-sauer-id231530355.html": 1,
+        "https://www.infosat.de/digital-tv/pokal-schlager-gladbach-gegen-dortmund-im-free-tv-essen-bei-sky": 1
+    }
+}
