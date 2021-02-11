@@ -9,7 +9,7 @@ class Results extends Component {
         this.state = {
             activeTrend: "",
             showStats: false,
-            demoMode: false
+            demoMode: true
         };
 
         this.selectTrend = this.selectTrend.bind(this);
