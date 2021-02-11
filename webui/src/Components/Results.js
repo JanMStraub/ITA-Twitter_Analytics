@@ -8,7 +8,8 @@ class Results extends Component {
         super()
         this.state = {
             activeTrend: "",
-            showStats: false
+            showStats: false,
+            demoMode: false
         };
 
         this.selectTrend = this.selectTrend.bind(this);
@@ -19,18 +20,14 @@ class Results extends Component {
         this.setState({showStats : true})
     }
 
-
-    //TODO: convert trend to %-notiation for https://de.wikipedia.org/wiki/URL-Encoding
-    //convert direct in axios call 
-
     render() {
 
         console.log(this.state.activeTrend)
 
         return (
             <div className="results">
-                <TrendList selectTrend={this.selectTrend}/>
-                {this.state.showStats && <TrendStats trend={this.state.activeTrend}/>}
+                <TrendList selectTrend={this.selectTrend} demoMode={this.state.demoMode}/>
+                {this.state.showStats && <TrendStats trend={this.state.activeTrend} demoMode={this.state.demoMode}/>}
             </div>
         )
     }

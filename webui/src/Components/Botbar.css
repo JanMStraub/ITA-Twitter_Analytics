@@ -18,3 +18,7 @@ footer {
   footer ul li {
     padding: 0 0.4em;
   }
+
+.demo_mode_disclaimer {
+  margin-left: auto;
+}  

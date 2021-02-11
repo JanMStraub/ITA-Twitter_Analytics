@@ -4,6 +4,7 @@ import LandingPage from './Components/LandingPage';
 import AboutProject from './Components/AboutProject';
 import Mobile from './Components/MobileNotifiy';
 import Contact from './Components/Contact';
+import Demo from './Components/Demo';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" exact component={LandingPage} />
           <Route path="/aboutproject" component={AboutProject} />
           <Route path="/contact" component={Contact} />
+          <Route path="/demo" component={Demo} />
           <Redirect to="/" />
         </Switch>
       </div>

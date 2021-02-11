@@ -1,0 +1,16 @@
+.hero_wrapper_demo {
+    background-image: url('../images/background2.png');
+    background-size: cover;
+    background-position-y: top;
+    text-align: left;
+    height: 100%;
+}
+
+.demo {
+    height: 100%;
+}
+
+.hero_wrapper_demo p {
+    margin-top: 5em;
+    text-align: center;
+}

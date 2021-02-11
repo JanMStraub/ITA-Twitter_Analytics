@@ -8,13 +8,13 @@ class TrendStats extends Component {
     constructor() {
         super()
         this.state = {
-            // ldaURL: "",
             wordcloudURL: "",
             sentimentURL: "",
             links: {},
             keywords: {},
             tweetCount: 0,
-            finishedLoading: false
+            finishedLoading: false,
+            errorWhileLoading: false,
         };
         this.getStats = this.getStats.bind(this);
         this.showLinks = this.showLinks.bind(this);
@@ -23,18 +23,24 @@ class TrendStats extends Component {
 
 
     async getStats(trend) {
-        axios.get("http://localhost:5000/analyze_trend?trend=" + encodeURIComponent(trend))
+
+        var backendURL = "http://localhost:5000/analyze_trend?trend=" + encodeURIComponent(trend)
+        if (this.props.demoMode) {
+            backendURL = "http://localhost:5000/" + encodeURIComponent(trend) + ".json"
+        }
+
+        axios.get(backendURL)
             .then(response => {
                 this.setState({ links: response.data.links });
                 this.setState({ keywords: response.data.keywords });
-                // this.setState({ ldaURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_lda.png" });
                 this.setState({ wordcloudURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_wordcloud.png" });
-                this.setState({ sentimentURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_sentiment_pie_chart.png" });
+                this.setState({ sentimentURL: "http://localhost:5000/" + encodeURIComponent(trend) + "_sentiment_pie_chart_gervader.png" });
                 this.setState({ tweetCount: response.data.tweet_count });
                 this.setState({ finishedLoading: true })
             })
-            .catch(function (error) {
+            .catch(error => {
                 console.log(error);
+                this.setState({ errorWhileLoading: true });
             });
     }
 
@@ -51,6 +57,7 @@ class TrendStats extends Component {
             return links_tr
         }
     }
+
 
     createTokenTable() {
         if (Object.keys(this.state.keywords).length === 0) {
@@ -78,6 +85,7 @@ class TrendStats extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.trend) {
             if (this.props.trend !== prevProps.trend) {
+                this.setState({errorWhileLoading : false})
                 this.getStats(this.props.trend)
                 this.setState({finishedLoading : false})
             }
@@ -133,6 +141,10 @@ class TrendStats extends Component {
                 </div>
         } else {
             content = <div className="loading"><img src={loading} alt="" height="40" width="40" /></div>
+        }
+
+        if (this.state.errorWhileLoading) {
+            content = <h3>Error while loading data from backend!</h3>
         }
 
         return (

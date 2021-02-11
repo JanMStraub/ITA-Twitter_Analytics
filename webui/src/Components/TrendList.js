@@ -13,7 +13,13 @@ class TrendList extends Component {
 
 
     async getTrends() {
-        axios.get("http://localhost:5000/trend_list")
+
+        var url = "http://localhost:5000/trend_list"
+        if (this.props.demoMode) {
+            url += "?demo=True"
+        }
+
+        axios.get(url)
             .then(response => {
                 this.setState({ trends: response.data })
             })
@@ -23,6 +29,7 @@ class TrendList extends Component {
     }
 
     componentDidMount() {
+
         this.getTrends()
     }
 
