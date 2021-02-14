@@ -1,11 +1,12 @@
 .TrendList ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-bottom: .7em;
     font-size: 2em;
 }
 
 .TrendList {
+    padding-top: 4em;
     margin: 0em 7em;
 }
 
@@ -30,6 +31,7 @@
 .trendmenublock {
     width: 100%;
     text-align: center;
+    justify-content: space-evenly;
 }
 
 .trendNumber {

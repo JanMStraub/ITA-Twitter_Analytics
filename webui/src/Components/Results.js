@@ -9,15 +9,17 @@ class Results extends Component {
         this.state = {
             activeTrend: "",
             showStats: false,
-            demoMode: true
+            demoMode: true,
+            id: 0
         };
 
         this.selectTrend = this.selectTrend.bind(this);
     }
 
-    selectTrend = (trend) => {
+    selectTrend = (trend, id) => {
         this.setState({activeTrend : trend})
         this.setState({showStats : true})
+        this.setState({id: id})
     }
 
     render() {
@@ -27,7 +29,7 @@ class Results extends Component {
         return (
             <div className="results">
                 <TrendList selectTrend={this.selectTrend} demoMode={this.state.demoMode}/>
-                {this.state.showStats && <TrendStats trend={this.state.activeTrend} demoMode={this.state.demoMode}/>}
+                {this.state.showStats && <TrendStats trend={this.state.activeTrend} id={this.state.id}demoMode={this.state.demoMode}/>}
             </div>
         )
     }

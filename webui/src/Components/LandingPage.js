@@ -19,15 +19,7 @@ class LandingPage extends Component {
   }
 
   showResults() {
-    this.setState({
-      showResults : true
-    });
-  }
-
-  componentDidUpdate() {
-    if (this.state.showResults) {
-      scrollToComponent(this.results, {offset: 0, align: 'top', duration: 1500})
-    }
+    scrollToComponent(this.results, {offset: 0, align: 'top', duration: 1500})
   }
 
   render() {
@@ -40,7 +32,7 @@ class LandingPage extends Component {
             <button onClick={this.showResults}>Run Analytics</button>
         </div>
         <section ref={(section) => {this.results = section;}}>
-          {this.state.showResults && <Results />}
+          <Results />
         </section>
         <Botbar />
       </div>

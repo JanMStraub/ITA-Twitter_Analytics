@@ -98,7 +98,7 @@ class TrendStats extends Component {
         if (this.state.finishedLoading) {
             content =
                 <div>
-                    <h6>1.  {this.props.trend}</h6>
+                    <h6>{this.props.id}.  {this.props.trend}</h6>
                     <p className="tweet_count">(based on {this.state.tweetCount} tweets)</p>
                     <div className="first_row">
                         <div className="topic_words_wrapper">

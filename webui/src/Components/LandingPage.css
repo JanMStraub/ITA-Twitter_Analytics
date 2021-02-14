@@ -7,8 +7,7 @@ body {
 }
 
 .wrapper {
-  height: 100% !important;
-  min-height: 100% !important;
+  height: 90%;
 }
 
 .hero_wrapper {
@@ -20,12 +19,11 @@ body {
   position: relative;
   margin: 0 auto;
 
-  height: 100% !important;
-  min-height: 100% !important;
+  height: 100%;
 }
 
 h1 {
-  margin: 0 auto 1.7em;
+  margin: 0 auto 2.5em;
   padding-top: 2.5em;
   font-size: 6em;
   max-width: 1100px;

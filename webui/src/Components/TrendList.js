@@ -39,11 +39,15 @@ class TrendList extends Component {
     }
 
     increaseTrend() {
-        this.setState({firstTrend: this.state.firstTrend + 5})
+        if (this.state.firstTrend < 45) {
+            this.setState({firstTrend: this.state.firstTrend + 5})
+        }
     }
 
     decreaseTrend() {
-        this.setState({firstTrend: this.state.firstTrend - 5})
+        if (this.state.firstTrend >= 5) {
+            this.setState({firstTrend: this.state.firstTrend - 5})
+        }
     }
 
 
@@ -56,7 +60,7 @@ class TrendList extends Component {
                     
                     <p className="trendNumber">{firstTrend + idx + 1}</p>
                     <li onClick={() => {
-                    this.props.selectTrend(trend)
+                    this.props.selectTrend(trend, firstTrend + idx + 1)
                     }} key={idx}>{trend}</li>
         
                 </div>;
