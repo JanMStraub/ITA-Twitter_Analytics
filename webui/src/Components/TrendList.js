@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import './TrendList.css';
 import axios from "axios";
+import {CSSTransitionGroup} from 'react-transition-group';
+
 
 class TrendList extends Component {
     constructor() {
         super()
         this.state = {
-            trends: []
+            trends: [],
+            firstTrend: 0
         };
         this.getTrends = this.getTrends.bind(this);
+        this.increaseTrend = this.increaseTrend.bind(this);
+        this.decreaseTrend = this.decreaseTrend.bind(this);
     }
 
 
@@ -33,25 +38,53 @@ class TrendList extends Component {
         this.getTrends()
     }
 
+    increaseTrend() {
+        this.setState({firstTrend: this.state.firstTrend + 5})
+    }
+
+    decreaseTrend() {
+        this.setState({firstTrend: this.state.firstTrend - 5})
+    }
+
 
     render() {
 
-        const items = this.state.trends.map((trend, idx) => {
-            return <li onClick={() => {
-                this.props.selectTrend(trend)
-            }} key={idx}>{trend}</li>;
-        });
+        const TrendsMenuBlock = (trends, firstTrend) => {
+
+            const items = trends.map((trend, idx) => {
+                return <div>
+                    
+                    <p className="trendNumber">{firstTrend + idx + 1}</p>
+                    <li onClick={() => {
+                    this.props.selectTrend(trend)
+                    }} key={idx}>{trend}</li>
+        
+                </div>;
+            });
+        
+            return (
+                <div className="trendmenublock">
+                    <ul>{items}</ul>
+                </div>
+            )
+        }
+
+        const trendsBlock = TrendsMenuBlock(this.state.trends.slice(this.state.firstTrend, this.state.firstTrend + 5), this.state.firstTrend)
 
         return (
             <div className="TrendList">
                 <h2>Current Trends</h2>
                 <h6>Quick Access</h6>
-                <div className="list_div">
-                    <ul>{items.slice(0, 10)}</ul>
-                    <ul>{items.slice(10, 20)}</ul>
-                    <ul>{items.slice(20, 30)}</ul>
-                    <ul>{items.slice(30, 40)}</ul>
-                    <ul>{items.slice(40, 50)}</ul>
+                <div className="menu-bar">
+                    <button onClick={this.decreaseTrend}>l</button>
+                    {trendsBlock}
+                    {/* <CSSTransitionGroup
+                        transitionName="trendsAnimation"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}>
+                        {trendsBlock}
+                    </CSSTransitionGroup> */}
+                    <button onClick={this.increaseTrend}>r</button>
                 </div>
             </div>
         )

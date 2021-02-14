@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: .7em;
-    font-size: larger;
+    font-size: 2em;
 }
 
 .TrendList {
@@ -17,3 +17,43 @@
     color: #A9A9A9;
     cursor: pointer;
 }
+
+.menu-bar {
+    margin: 4em;
+    height: 7em;
+    background-color: rgba(0, 78, 167, 0.3);
+    border-radius: 17px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.trendmenublock {
+    width: 100%;
+    text-align: center;
+}
+
+.trendNumber {
+    font-family: 'BebasNeue';
+    margin-bottom: .7em;
+    margin-top: .6em;
+}
+
+
+/* .trendsAnimation-enter {
+    opacity: 0.01;
+}
+  
+.trendsAnimation-enter.trendsAnimation-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+    transition: ;
+}
+  
+.trendsAnimation-leave {
+    opacity: 1;
+}
+  
+.trendsAnimation-leave.trendsAnimation-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+} */
