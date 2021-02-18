@@ -29,7 +29,7 @@ class LandingPage extends Component {
         <div className="hero_wrapper">
           <Navbar />
             <h1>Consumer-Based Decision Aid Of The Top 50 German Twitter Trends</h1>
-            <button onClick={this.showResults}>Run Analytics</button>
+            <button onClick={this.showResults}></button>
         </div>
         <section ref={(section) => {this.results = section;}}>
           <Results />

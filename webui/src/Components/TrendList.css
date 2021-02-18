@@ -28,6 +28,36 @@
     justify-content: space-between;
 }
 
+.menu-bar button {
+    background-size: contain;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    width: 3em;
+    height: 100%;
+    background-position-y: center;
+    padding: 0;
+}
+
+.menu-bar button:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.menu-bar button:focus {
+    outline: none;
+}
+
+.left_button {
+    background-image: url('../images/Quick_Access_Arrow_left.png');
+    margin-left: .7em;
+}
+
+.right_button {
+    background-image: url('../images/Quick_Access_Arrow_right.png');
+    margin-right: .7em;
+}
+
 .trendmenublock {
     width: 100%;
     text-align: center;
@@ -39,23 +69,3 @@
     margin-bottom: .7em;
     margin-top: .6em;
 }
-
-
-/* .trendsAnimation-enter {
-    opacity: 0.01;
-}
-  
-.trendsAnimation-enter.trendsAnimation-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-    transition: ;
-}
-  
-.trendsAnimation-leave {
-    opacity: 1;
-}
-  
-.trendsAnimation-leave.trendsAnimation-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-} */

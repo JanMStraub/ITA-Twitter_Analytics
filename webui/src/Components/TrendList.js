@@ -77,10 +77,11 @@ class TrendList extends Component {
 
         return (
             <div className="TrendList">
-                <h2>Current Trends</h2>
+                <h2>Trends</h2>
                 <h6>Quick Access</h6>
+                <p className="tweet_count">Start here by Selecting a Trend</p>
                 <div className="menu-bar">
-                    <button onClick={this.decreaseTrend}>l</button>
+                    <button className="left_button" onClick={this.decreaseTrend}> </button>
                     {trendsBlock}
                     {/* <CSSTransitionGroup
                         transitionName="trendsAnimation"
@@ -88,7 +89,7 @@ class TrendList extends Component {
                         transitionLeaveTimeout={300}>
                         {trendsBlock}
                     </CSSTransitionGroup> */}
-                    <button onClick={this.increaseTrend}>r</button>
+                    <button className="right_button" onClick={this.increaseTrend}> </button>
                 </div>
             </div>
         )

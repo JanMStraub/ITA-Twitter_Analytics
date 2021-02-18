@@ -29,27 +29,32 @@ h1 {
   max-width: 1100px;
 }
 
+
+.hero_wrapper button {
+  background-image: url("../images/Masthead_Arrow.png");
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  width: 8em;
+  height: 4em;
+  background-position-y: center;
+  padding: 0;
+}
+
+.hero_wrapper button:hover {
+  filter: brightness(0.8);
+  cursor: pointer;
+}
+
+.hero_wrapper button:focus {
+  outline: none;
+}
+
 @-moz-document url-prefix() {
   h1 {
     max-width: 1150px;
   }
-}
-
-button {
-  font-size: 4em;
-  font-family: 'BebasNeue';
-  background-color: #272727;
-  border-color: red;
-  border-width: 2px;
-  color: white;
-  border-radius: 30px;
-  padding: 10px 20px 0px;
-  cursor: pointer;
-  transition: background 0.2s linear 0.1s , color 0.2s linear 0s;
-}
-button:hover {
-  background-color: white;
-  color: black;
 }
 
 @media screen and (max-height: 700px) {
