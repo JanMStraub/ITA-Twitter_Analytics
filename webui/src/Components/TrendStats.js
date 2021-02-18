@@ -122,10 +122,6 @@ class TrendStats extends Component {
                             <img className="sentiment" src={this.state.sentimentURL} alt="" />
                         </div>
                         <div className="categories_links_wrapper">
-                            <div className="categories_wrapper">
-                                <h3>Categories</h3>
-                                <p className="WIP">Work in Progress</p>
-                            </div>
                             <div className="links_wrapper">
                                 <h3>Top Links</h3>
                                 <table>

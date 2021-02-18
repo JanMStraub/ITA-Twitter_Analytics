@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './TrendList.css';
 import axios from "axios";
-import {CSSTransitionGroup} from 'react-transition-group';
 
 
 class TrendList extends Component {
@@ -83,12 +82,6 @@ class TrendList extends Component {
                 <div className="menu-bar">
                     <button className="left_button" onClick={this.decreaseTrend}> </button>
                     {trendsBlock}
-                    {/* <CSSTransitionGroup
-                        transitionName="trendsAnimation"
-                        transitionEnterTimeout={500}
-                        transitionLeaveTimeout={300}>
-                        {trendsBlock}
-                    </CSSTransitionGroup> */}
                     <button className="right_button" onClick={this.increaseTrend}> </button>
                 </div>
             </div>
