@@ -24,12 +24,13 @@ def sentiment_analysis(trend_from_storage):
 
     tweets_of_trend = read_from_storage(trend_from_storage)
 
-    # analyze each individual tweet with TextBlob
+    # analyze each individual tweet with GerVader
     analyzer = SentimentIntensityAnalyzer()
     for tweet in tweets_of_trend:
         score = analyzer.polarity_scores(tweet)
         neg, neu, pos = score["neg"], score["neu"], score["pos"]
-
+        
+        # increment the positive/ neutral/ negative counter depending on which score is the highest
         if neg > pos:
             negative_tweets += 1
         elif pos > neg:
@@ -54,11 +55,12 @@ def create_pie_chart(trend_from_storage, percentage_positive, percentage_neutral
     OUT:
     None (png's created in storage/results)
     """
-
-    colors = ["limegreen", "orange", "firebrick"]
+    
+    colors = ["lightskyblue", "steelblue", "midnightblue"]
     labels = 'Positive', 'Neutral', 'Negative'
     sizes = [percentage_positive, percentage_neutral, percentage_negative]
-
+    
+    # create pie chart plot and wedges
     fig, ax = plt.subplots()
     wedges, text, autotext =  ax.pie(sizes,
         colors=colors,
@@ -69,6 +71,7 @@ def create_pie_chart(trend_from_storage, percentage_positive, percentage_neutral
         pctdistance = 0.8,
         startangle=120)
 
+    # various parameters to change the visual of the pie chart
     plt.setp(wedges, width = 0.40)
     fig.set_facecolor('darkblue')
     ax.axis('equal')
