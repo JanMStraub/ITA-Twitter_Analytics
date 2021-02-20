@@ -12,8 +12,8 @@ def similar_color_func(word=None, font_size=None,
                        position=None, orientation=None,
                        font_path=None, random_state=None):
 
-    h = 40  # 0 - 360
-    s = 100  # 0 - 100
+    h = 210  # 0 - 360 / 200
+    s = 70  # 0 - 100  / 50 / 70
     random = random_state.randint(30, 70)  # 0 - 100
     return "hsl({}, {}%, {}%)".format(h, s, random)
 
@@ -66,8 +66,8 @@ def create_and_save_wordcloud_to_storage(trend_name, data):
 
         # build wordcloud
         wordcloud = WordCloud(
-            background_color=None, mode='RGBA', max_words=2000, random_state=42, width=1000, height=1000,
-            color_func=multi_color_func, mask=make_circle(), min_word_length=2).generate_from_frequencies(data)
+            background_color=None, mode='RGBA', max_words=500, random_state=42, width=1000, height=1000,
+            color_func=similar_color_func, mask=make_circle(), min_word_length=2).generate_from_frequencies(data)
         plt.imshow(wordcloud, interpolation="bilinear")
         wordcloud.to_file(path)
 
@@ -108,5 +108,15 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words, current_di
 
 if __name__ == "__main__":
 
-    ...
+    # get all trend filenames from storage
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
+    trends = ["#Lanz.json"]
+
+    for trend in trends:
+        print(trend)
+        data = clean_tweets(trend)
+        create_and_save_wordcloud_to_storage(trend, data)
+
+
     print("\nYou are doing great! :)")  # Motivational Message
