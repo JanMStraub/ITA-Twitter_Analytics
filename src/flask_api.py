@@ -43,7 +43,3 @@ def trend_list():
 @app.route('/<path:path>')
 def send_static(path):
     return send_from_directory('../storage/results', path)
-
-
-if __name__ == "__main__":
-    ...

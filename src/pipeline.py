@@ -1,6 +1,5 @@
 import json
 import os
-import nltk
 import re
 import spacy
 
@@ -99,9 +98,6 @@ def clean_tweets(trend_from_storage):
     lemmatized_dict (dict): preprocessed data dict for that trend, structure: {"word": <word count>, ...}
     """
 
-    # load nltk stopwords
-    # TODO: move to main ?
-    nltk.download('stopwords')
     # load NLP for tokenisation/lemmatization
     nlp = spacy.load('de_core_news_sm')
     nlp.disable_pipes('tagger', 'parser', 'ner')
@@ -144,11 +140,3 @@ def clean_tweets(trend_from_storage):
                     lemmatized_dict[word] += 1
 
     return lemmatized_dict
-
-
-if __name__ == "__main__":
-
-    # print(get_links_from_tweet("Kane.json"))
-    print(clean_tweets("#Streeck.json"))
-    # print(clean_tweets("#AdoreYouDay.json"))
-    print("\nYou are doing great! :)")  # Motivational Message

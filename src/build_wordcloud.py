@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from wordcloud import WordCloud
-from pipeline import clean_tweets
 
 
 # to color the plot
@@ -104,19 +103,3 @@ def create_and_save_wordcloud_to_storage_lda(trend_name, topic_words, current_di
 
     else:
         print("skipping " + name + " -> already in storage")
-
-
-if __name__ == "__main__":
-
-    # get all trend filenames from storage
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
-    trends = ["#Lanz.json"]
-
-    for trend in trends:
-        print(trend)
-        data = clean_tweets(trend)
-        create_and_save_wordcloud_to_storage(trend, data)
-
-
-    print("\nYou are doing great! :)")  # Motivational Message

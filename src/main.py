@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import nltk
 from operator import itemgetter
 from pipeline import clean_tweets
 from pipeline import get_links_from_tweet
@@ -8,6 +9,9 @@ from get_tweets import save_trend_to_storage
 from build_wordcloud import create_and_save_wordcloud_to_storage
 from build_topic_modeling import perform_LDA
 from sentiment_analysis_gervader import sentiment_analysis, create_pie_chart
+
+# load nltk stopwords
+nltk.download('stopwords')
 
 # Hyperparameter
 TOTAL_AMOUNT = 200
@@ -18,6 +22,13 @@ def analyze_trend(trend):
     IN: trend(string)
     OUT: results_json(dict)
     """
+
+    TREND_PATH = os.path.dirname(os.path.abspath(__file__)) + '/../storage/results/' + trend + '.json'
+
+    if os.path.isfile(TREND_PATH):
+        print("yas")
+        with open(TREND_PATH, 'r') as file:
+            return json.load(file)
 
     save_trend_to_storage(trend, TOTAL_AMOUNT)  # save tweets to storage
 
@@ -56,10 +67,4 @@ def analyze_trend(trend):
         json.dump(results_json, outfile, indent=4)
 
     return results_json
-
-
-if __name__ == "__main__":
-
-    analyze_trend("#sterntv")
-
-    print("You are doing great! :)")
+    

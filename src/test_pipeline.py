@@ -1,16 +1,10 @@
 import pipeline
 import unittest
-import json
-import os
-import nltk
-from nltk.corpus import stopwords
-from sklearn.feature_extraction.text import CountVectorizer
+
 
 class TestPipelineMethods(unittest.TestCase):
 
-
     def setUp(self):
-        #self.testdata = open(current_dir + '/../storage/jsons/TEST.json').read()
         self.testdata_read_from_storage = [
             "Dies ist ein Test! Halleluja",
             "Dies ist ein Test! Halleluja",
@@ -47,17 +41,15 @@ class TestPipelineMethods(unittest.TestCase):
             "tage": 1
         }
 
-
     def test_read_from_storage(self):
         """
         test if list of only tweet texts is correct imported
         """
         self.assertEqual(self.testdata_read_from_storage, pipeline.read_from_storage("TEST.json"))
 
-        #test if not existing file raises errorr
+        # test if not existing file raises error
         with self.assertRaises(FileNotFoundError):
             pipeline.read_from_storage("penis.json")
-
 
     def test_count_links(self):
         """
@@ -65,20 +57,17 @@ class TestPipelineMethods(unittest.TestCase):
         """
         self.assertEqual(self.testdata_count_links, pipeline.count_links(self.testdata_get_links_from_tweets))
 
-
     def test_get_links_from_tweet(self):
         """
         test if links are filtered correctly
         """
         self.assertEqual(self.testdata_count_links, pipeline.get_links_from_tweet("TEST.json"))
 
-
     def test_remove_numbers_and_links(self):
         """
         test if all numbers are removed
         """
         self.assertEqual(self.testdata_remove_numbers_and_links, pipeline.remove_numbers_and_links(self.testdata_read_from_storage))
-
 
     def test_clean_tweets(self):
         self.assertEqual(self.testdata_clean_tweets, pipeline.clean_tweets("TEST.json"))

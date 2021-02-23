@@ -151,7 +151,3 @@ def save_trend_to_storage(trend, total_amount):
             print("Data successfully writen to storage/jsons" + filename)
     else:
         print("skipping " + trend["name"] + " -> already in storage")
-
-
-if __name__ == "__main__":
-    print("You are doing great :)")  # motivational message

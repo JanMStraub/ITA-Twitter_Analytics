@@ -2,7 +2,6 @@ import os
 import gensim.corpora as corpora
 import gensim.models as models
 
-from pipeline import clean_tweets
 from build_wordcloud import create_and_save_wordcloud_to_storage_lda
 
 
@@ -96,20 +95,3 @@ def perform_LDA(trend, data):
     topic_words = model_visualization(trend, lda_model_data, current_dir)
 
     return topic_words
-
-
-if __name__ == '__main__':
-
-    # get all trend filenames from storage
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
-    trends = ["#Lanz.json"]
-
-    for trend in trends:
-        data = clean_tweets(trend)
-        list_data = convert_dict_to_list(data)
-        corpus_data, id2word_data = preparing_data_for_LDA(list_data)
-        lda_model_data = model_training(corpus_data, id2word_data)
-        model_visualization(trend, lda_model_data, current_dir)
-
-    print("You are doing great! :)")
