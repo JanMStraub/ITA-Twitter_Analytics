@@ -6,7 +6,6 @@ from pipeline import read_from_storage
 
 # get all trend filenames from storage
 current_dir = os.path.dirname(os.path.abspath(__file__))
-trends = [trend for trend in os.listdir(current_dir + '/../storage/jsons')]
 
 def sentiment_analysis(trend_from_storage):
     """
