@@ -1,5 +1,6 @@
 # Storage // add storage-folder to this file for deployment
-storage/
+storage/jsons
+storage/results
 
 .vscode/
 

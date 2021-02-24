@@ -14,7 +14,7 @@ from sentiment_analysis_gervader import sentiment_analysis, create_pie_chart
 nltk.download('stopwords')
 
 # Hyperparameter
-TOTAL_AMOUNT = 200
+TOTAL_AMOUNT = 5000
 
 
 def analyze_trend(trend):
@@ -25,8 +25,8 @@ def analyze_trend(trend):
 
     TREND_PATH = os.path.dirname(os.path.abspath(__file__)) + '/../storage/results/' + trend + '.json'
 
+    # caching
     if os.path.isfile(TREND_PATH):
-        print("yas")
         with open(TREND_PATH, 'r') as file:
             return json.load(file)
 
@@ -39,8 +39,11 @@ def analyze_trend(trend):
     top_links = dict(sorted(links.items(), key=itemgetter(1), reverse=True)[:5])
     unshort_top_links = {}
     for url in top_links.keys():
-        r = requests.head(url, allow_redirects=True)
-        unshort_top_links[r.url] = top_links[url]
+        try:
+            r = requests.head(url, allow_redirects=True)
+            unshort_top_links[r.url] = top_links[url]
+        except:
+            print("error while unshorting link")
 
     # create worldcloud and perform LDA
     create_and_save_wordcloud_to_storage(trend, data)

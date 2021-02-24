@@ -148,6 +148,6 @@ def save_trend_to_storage(trend, total_amount):
 
         with open(path, 'w') as output:
             output.write(json_data)
-            print("Data successfully writen to storage/jsons" + filename)
+            print("Data successfully writen to storage/jsons/" + filename)
     else:
         print("skipping " + trend["name"] + " -> already in storage")
