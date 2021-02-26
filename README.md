@@ -1,3 +1,5 @@
+## Quick Note: The backend needs some time to start, so no worries if our website is not working right from the start. 
+
 ## Requirements
 Make sure to download all required packages first, i.e. run:
 ```
@@ -8,6 +10,8 @@ and please also run:
 ```
 python -m spacy download de
 ```
+
+Apart from that you need access to the [Twitter API](https://developer.twitter.com/en/docs/twitter-api) to run the scraper.
 
 # Consumer-Based Decision Aid Of The Top 50 German Twitter Trends
 Maximilian Schöneberger,
